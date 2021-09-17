@@ -6,8 +6,17 @@ public class VirtualPetApplication {
 
     public static void main(String[] args){
 
+
+        System.out.println("                                           _   _    \t\t                      _                 _          _ ");
+        System.out.println("                                          | | | |\t\t                         | |               | |        | |");
+        System.out.println(" _ __ ___   __ _ _ __ ___  _ __ ___   ___ | |_| |__  \t  .----.-.\t     _ __ __ | | ___   __ _  __| | ___  __| |");
+        System.out.println("| '_ ` _ \\ / _` | '_ ` _ \\| '_ ` _ \\ / _ \\| __| '_ \\ \t /    ( o \\     | '__/ _ \\ |/ _ \\ / _` |/ _` |/ _ \\/ _` |");
+        System.out.println("| | | | | | (_| | | | | | | | | | | | (_) | |_| | | |   '|  __ ` ||     | | |  __/ | (_) | (_| | (_| |  __/ (_| |");
+        System.out.println("|_| |_| |_|\\__,_|_| |_| |_|_| |_| |_|\\___/ \\__|_| |_|\t |||  ||| -'\t|_|  \\___|_|\\___/ \\__,_|\\__,_|\\___|\\__,_|");
+
+
         //Mammoth Name from User
-        System.out.println("What is your pets name? ");
+        System.out.println("\nWhat is your pets name? ");
         Scanner input = new Scanner(System.in);
         String mammothName = input.nextLine();
         System.out.println("Welcome to the wintry world " + mammothName + "!");
