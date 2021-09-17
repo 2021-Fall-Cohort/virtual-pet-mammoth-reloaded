@@ -24,11 +24,13 @@ public class VirtualPetApplication {
 //        int mammothAge = input.nextLine();
 //        System.out.println ("Your pet " + mammothName + ", is " + mammothFurColor + ", and " + mammothAge + " years old! ");
 
-        Mammoth userMammoth = new Mammoth(mammothName, mammothFurColor, -1, 0, 10,  1);
+        Mammoth userMammoth = new Mammoth(mammothName, mammothFurColor, -1, 0, 10,  1,  5);
 
-        for(int y = 0; y<=10; y++){
+        for(int y = 0; y<=11; y++){
             userMammoth.tick();
             userMammoth.hung();
+            userMammoth.feed();
+            userMammoth.hibernate();
         }
 
         //Do you want to feed your pet? (Feed Function)
