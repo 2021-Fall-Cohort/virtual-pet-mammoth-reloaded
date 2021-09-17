@@ -31,6 +31,7 @@ public class VirtualPetApplication {
             userMammoth.hung();
             userMammoth.feed();
             userMammoth.hibernate();
+            userMammoth.care();
         }
 
         //Do you want to feed your pet? (Feed Function)

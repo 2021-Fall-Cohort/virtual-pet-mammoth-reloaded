@@ -95,17 +95,45 @@ public class Mammoth {
         if (hibernateChoices == 1) {
             happiness = happiness - 2;
             System.out.println(new StringBuilder().append("Your pet ").append(mammothName).append(" is being hunted by the Neanderthals of Europa"));
+            System.out.println(mammothName + " now has a happiness level of " + happiness + ".");
         } else if (hibernateChoices == 2) {
             happiness = happiness - 3;
             System.out.println(new StringBuilder().append("Your pet ").append(mammothName).append(" is freezing! They have frozen their heart out!"));
+            System.out.println(mammothName + " now has a happiness level of " + happiness + ".");
         } else if (hibernateChoices == 3) {
             happiness = happiness + 2;
             System.out.println(new StringBuilder().append("Your pet ").append(mammothName).append(" has found the perfect spot to rest and wait out the winter!"));
+            System.out.println(mammothName + " now has a happiness level of " + happiness + ".");
         } else if(hibernateChoices == 4) {
             happiness = happiness + 3;
             System.out.println(new StringBuilder().append("Your pet ").append(mammothName).append(" has found other mammoths to hang out with while they wait out the winter!"));
+            System.out.println(mammothName + " now has a happiness level of " + happiness + ".");
         } else {
             System.out.println("Not Valid");
+        }
+
+    }
+
+    public void care(){
+        System.out.println(mammothName + " looks a little bored. What do you say we do something nice for them?\n");
+        System.out.println("[1=Take for a walk] [2=Polish their tusks] [3=Comb their "+mammothFurColor +" fur]");
+        Scanner inputScanner = new Scanner(System.in);
+        int careChoices = inputScanner.nextInt();
+
+        if(careChoices==1){
+            happiness = happiness + 3;
+            System.out.println(mammothName + "loved their walk! Their happiness level is now " + happiness + ".");
+        }
+        else if(careChoices==2){
+            happiness = happiness + 2;
+            System.out.println("Those tusks sure are sparkling! " + mammothName + "'s happiness level is now  " + happiness + ".");
+        }
+        else if(careChoices==3){
+            happiness = happiness + 1;
+            System.out.println("Look at that pretty " + mammothFurColor + " fur! " + mammothName + "'s happiness level is now  " + happiness + ".");
+        }
+        else{
+            System.out.println("Invalid Choice");
         }
     }
 }
