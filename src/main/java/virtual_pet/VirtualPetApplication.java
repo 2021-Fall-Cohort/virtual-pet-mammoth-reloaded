@@ -33,10 +33,10 @@ public class VirtualPetApplication {
 //        int mammothAge = input.nextLine();
 //        System.out.println ("Your pet " + mammothName + ", is " + mammothFurColor + ", and " + mammothAge + " years old! ");
 
-        Mammoth userMammoth = new Mammoth(mammothName, mammothFurColor, -1, 0, 10,  1,  5, true);
+        Mammoth userMammoth = new Mammoth(mammothName, mammothFurColor, 0, 9,  1,  5, true);
 
         while(userMammoth.getIsAlive()){
-            userMammoth.tick();
+
             System.out.println("What would you like to do with your mammoth?");
             System.out.println("[1=feed]\t [2=hibernate]\t [3=care]");
             Scanner inputScanner = new Scanner(System.in);
@@ -62,10 +62,10 @@ public class VirtualPetApplication {
                     int careChoices = inputScanner.nextInt();
                     userMammoth.care(careChoices);
                 }
-                else{
-                    System.out.println("Invalid Selection");
+            userMammoth.tick();
+
                 }
-            userMammoth.takeVitals();
+//            userMammoth.takeVitals();
         }
 
         //Do you want to feed your pet? (Feed Function)
@@ -76,6 +76,5 @@ public class VirtualPetApplication {
 
 
 
-    }
 }
 

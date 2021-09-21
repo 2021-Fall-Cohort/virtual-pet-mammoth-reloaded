@@ -15,12 +15,11 @@ public class Mammoth {
     private boolean isAlive;
 
     //constructors for the mammoth
-    public Mammoth(String mammothName, String mammothFurColor, int age, int tuskLength, double hunger, int hibernation, int happiness, boolean isAlive) {
+    public Mammoth(String mammothName, String mammothFurColor, int age, double hunger, int hibernation, int happiness, boolean isAlive) {
 
         this.mammothName = mammothName;
         this.mammothFurColor = mammothFurColor;
         this.age = age;
-        this.tuskLength = tuskLength;
         this.hunger = hunger;
         this.hibernation = hibernation;
         this.happiness = happiness;
@@ -36,16 +35,16 @@ public class Mammoth {
 
     public void tick() {
         //age increases and displays
+        happiness--;
         age++;
-        tuskLength = age;
         if (age <= 10) {
             System.out.println("A year has passed and " + mammothName + " is now " + age + ".");
         } else if (age == 11) {
             isAlive = false;
+            System.out.println(mammothName + " has grown old and weak.");
             System.out.println("The mighty mammoth's return to earth was never a permanent solution. " +
                     "With the death of " + mammothName + " the great lineage of beasts returns once more to cosmic slumber.");
         }
-        System.out.println("Wow! " + mammothName + " is really growing! Their tusks are now " + tuskLength + " feet long!");
         double v = .5;
         if (age == 0 || age == 1) {
             hunger = hunger + v;
@@ -58,6 +57,28 @@ public class Mammoth {
         else {
             System.out.println("");
             }
+
+        if (happiness >= 10){
+            happiness = 10;
+            System.out.println(mammothName + " is as happy as can be! Great work!");
+        }
+        if(happiness <=0){
+            isAlive = false;
+            System.out.println("Oh no! " + mammothName + "'s poor heart can't take it anymore...");
+            System.out.println("The mighty mammoth's return to earth was never a permanent solution. " +
+                    "With the death of " + mammothName + " the great lineage of beasts returns once more to cosmic slumber.");
+        }
+
+        if (hunger<=0){
+            hunger = 0;
+            System.out.println("Woah! " + mammothName + " is full as can be! They'll grow big and strong in no time!");
+        }
+        if(hunger>=12){
+            isAlive = false;
+            System.out.println("OH NO! You've neglected to feed " + mammothName + "!");
+            System.out.println("The mighty mammoth's return to earth was never a permanent solution. " +
+                    "With the death of " + mammothName + " the great lineage of beasts returns once more to cosmic slumber.");
+        }
 
     }
 
@@ -132,30 +153,10 @@ public class Mammoth {
         }
     }
 
-    public void takeVitals(){
-        if (happiness >= 10){
-            happiness = 10;
-            System.out.println(mammothName + " is as happy as can be! Great work!");
-        }
-        if(happiness <=0){
-            isAlive = false;
-            System.out.println("Oh no! " + mammothName + "'s poor heart can't take it anymore...");
-            System.out.println("The mighty mammoth's return to earth was never a permanent solution. " +
-                    "With the death of " + mammothName + " the great lineage of beasts returns once more to cosmic slumber.");
-        }
-
-        if (hunger<=0){
-            hunger = 0;
-            System.out.println("Woah! " + mammothName + " is full as can be! They'll grow big and strong in no time!");
-        }
-        if(hunger<=12){
-            isAlive = false;
-            System.out.println("OH NO! You've neglected to feed " + mammothName + "!");
-            System.out.println("The mighty mammoth's return to earth was never a permanent solution. " +
-                    "With the death of " + mammothName + " the great lineage of beasts returns once more to cosmic slumber.");
-        }
-
-    }
+//    public void takeVitals(){
+//
+//
+//    }
 
     public boolean getIsAlive(){
         return isAlive;
