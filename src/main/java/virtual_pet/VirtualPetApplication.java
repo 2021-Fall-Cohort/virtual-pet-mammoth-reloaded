@@ -37,10 +37,34 @@ public class VirtualPetApplication {
 
         while(userMammoth.getIsAlive()){
             userMammoth.tick();
-            userMammoth.hung();
-            userMammoth.feed();
-            userMammoth.hibernate();
-            userMammoth.care();
+            System.out.println("What would you like to do with your mammoth?");
+            System.out.println("[1=feed]\t [2=hibernate]\t [3=care]");
+            Scanner inputScanner = new Scanner(System.in);
+            int mainLoop = inputScanner.nextInt();
+                if(mainLoop == 1){
+                    System.out.println("Do you want to feed your pet? Chose between \n [1=Feed Oats]   [2=Feed Peanuts]    [3=Feed bananas]    [4=Not Feed]?");
+                    inputScanner = new Scanner(System.in);
+                    int feedChoices = inputScanner.nextInt();
+                    userMammoth.feed();
+                }
+                if(mainLoop == 2){
+                    System.out.println("Winter is arriving for " + mammothName + "." + "Where do you want them to hibernate?");
+                    System.out.println("[1=Europa]  [2=Siberia] [3=Himalayan Mountains] [4=Mount Kilimanjaro]");
+                    inputScanner = new Scanner(System.in);
+                    int hibernateChoices = inputScanner.nextInt();
+                    userMammoth.hibernate();
+                }
+                if(mainLoop == 3){
+                    System.out.println(mammothName + " looks a little bored. What do you say we do something nice for them?\n");
+                    System.out.println("[1=Take for a walk] [2=Polish their tusks] [3=Comb their "+mammothFurColor +" fur]"
+                            + " [4=Ignore]");
+                    inputScanner = new Scanner(System.in);
+                    int careChoices = inputScanner.nextInt();
+                    userMammoth.care();
+                }
+                else{
+                    System.out.println("Invalid Selection");
+                }
             userMammoth.takeVitals();
         }
 

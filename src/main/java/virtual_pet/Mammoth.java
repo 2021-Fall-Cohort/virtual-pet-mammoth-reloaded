@@ -15,7 +15,7 @@ public class Mammoth {
     private boolean isAlive;
 
     //constructors for the mammoth
-    public Mammoth(String mammothName, String mammothFurColor, int age, int tuskLength, double hunger, int hibernation, int happiness, boolean b) {
+    public Mammoth(String mammothName, String mammothFurColor, int age, int tuskLength, double hunger, int hibernation, int happiness, boolean isAlive) {
 
         this.mammothName = mammothName;
         this.mammothFurColor = mammothFurColor;
@@ -37,6 +37,7 @@ public class Mammoth {
     public void tick() {
         //age increases and displays
         age++;
+        tuskLength = age;
         if (age <= 10) {
             System.out.println("A year has passed and " + mammothName + " is now " + age + ".");
         } else if (age == 11) {
@@ -44,30 +45,24 @@ public class Mammoth {
             System.out.println("The mighty mammoth's return to earth was never a permanent solution. " +
                     "With the death of " + mammothName + " the great lineage of beasts returns once more to cosmic slumber.");
         }
-        tuskLength = age;
-//        if (age =0)
-//            Syste
-        if (tuskLength <= 10) {
-            System.out.println("Wow! " + mammothName + " is really growing! Their tusks are now " + tuskLength + " feet long!");
-        }
-    }
-        public void hung() {
-            double v = .5;
-            if (age == 0 || age == 1) {
-                hunger = hunger + v;
-                System.out.println(new StringBuilder().append("Your pet ").append(mammothName).append("'s hunger has changed to ").append(hunger).toString());
-            } else if (age > 1 && age <= 10) {
-                hunger = hunger + (v + v);
-                System.out.println(new StringBuilder().append("Your pet ").append(mammothName).append("'s hunger has changed to ").append(hunger).toString());
-            } else {
-                System.out.println("");
+        System.out.println("Wow! " + mammothName + " is really growing! Their tusks are now " + tuskLength + " feet long!");
+        double v = .5;
+        if (age == 0 || age == 1) {
+            hunger = hunger + v;
+            System.out.println(new StringBuilder().append("Your pet ").append(mammothName).append("'s hunger has changed to ").append(hunger).toString());
             }
-        }
+        else if (age > 1 && age <= 10) {
+            hunger = hunger + (v + v);
+            System.out.println(new StringBuilder().append("Your pet ").append(mammothName).append("'s hunger has changed to ").append(hunger).toString());
+            }
+        else {
+            System.out.println("");
+            }
+
+    }
+
 
     public void feed() {
-        System.out.println("Do you want to feed your pet? Chose between \n [1=Feed Oats]   [2=Feed Peanuts]    [3=Feed bananas]    [4=Not Feed]?");
-        Scanner inputScanner = new Scanner(System.in);
-        int feedChoices = inputScanner.nextInt();
 
         if (feedChoices == 1) {
             hunger = hunger - 1;
@@ -88,10 +83,7 @@ public class Mammoth {
     }
 
     public void hibernate() {
-        System.out.println("Winter is arriving for " + mammothName + "." + "Where do you want them to hibernate?");
-        System.out.println("[1=Europa]  [2=Siberia] [3=Himalayan Mountains] [4=Mount Kilimanjaro]");
-        Scanner inputScanner = new Scanner(System.in);
-        int hibernateChoices = inputScanner.nextInt();
+
 
         if (hibernateChoices == 1) {
             happiness = happiness - 2;
@@ -116,11 +108,7 @@ public class Mammoth {
     }
 
     public void care(){
-        System.out.println(mammothName + " looks a little bored. What do you say we do something nice for them?\n");
-        System.out.println("[1=Take for a walk] [2=Polish their tusks] [3=Comb their "+mammothFurColor +" fur]"
-        + " [4=Ignore]");
-        Scanner inputScanner = new Scanner(System.in);
-        int careChoices = inputScanner.nextInt();
+
 
         if(careChoices==1){
             happiness = happiness + 3;
