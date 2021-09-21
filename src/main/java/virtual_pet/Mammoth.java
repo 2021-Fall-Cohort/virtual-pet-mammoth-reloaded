@@ -62,7 +62,7 @@ public class Mammoth {
     }
 
 
-    public void feed() {
+    public void feed(int feedChoices) {
 
         if (feedChoices == 1) {
             hunger = hunger - 1;
@@ -82,7 +82,7 @@ public class Mammoth {
         }
     }
 
-    public void hibernate() {
+    public void hibernate(int hibernateChoices) {
 
 
         if (hibernateChoices == 1) {
@@ -107,7 +107,7 @@ public class Mammoth {
 
     }
 
-    public void care(){
+    public void care(int careChoices){
 
 
         if(careChoices==1){

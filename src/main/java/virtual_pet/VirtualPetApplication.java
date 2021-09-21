@@ -45,14 +45,14 @@ public class VirtualPetApplication {
                     System.out.println("Do you want to feed your pet? Chose between \n [1=Feed Oats]   [2=Feed Peanuts]    [3=Feed bananas]    [4=Not Feed]?");
                     inputScanner = new Scanner(System.in);
                     int feedChoices = inputScanner.nextInt();
-                    userMammoth.feed();
+                    userMammoth.feed(feedChoices);
                 }
                 if(mainLoop == 2){
                     System.out.println("Winter is arriving for " + mammothName + "." + "Where do you want them to hibernate?");
                     System.out.println("[1=Europa]  [2=Siberia] [3=Himalayan Mountains] [4=Mount Kilimanjaro]");
                     inputScanner = new Scanner(System.in);
                     int hibernateChoices = inputScanner.nextInt();
-                    userMammoth.hibernate();
+                    userMammoth.hibernate(hibernateChoices);
                 }
                 if(mainLoop == 3){
                     System.out.println(mammothName + " looks a little bored. What do you say we do something nice for them?\n");
@@ -60,7 +60,7 @@ public class VirtualPetApplication {
                             + " [4=Ignore]");
                     inputScanner = new Scanner(System.in);
                     int careChoices = inputScanner.nextInt();
-                    userMammoth.care();
+                    userMammoth.care(careChoices);
                 }
                 else{
                     System.out.println("Invalid Selection");
