@@ -1,8 +1,5 @@
 package virtual_pet;
 
-import java.time.*;
-import java.time.Clock;
-import java.time.Duration;
 import java.util.Scanner;
 
 public class Mammoth {
@@ -15,9 +12,10 @@ public class Mammoth {
     private double hunger;
     private int hibernation;
     private int happiness;
+    private boolean isAlive;
 
     //constructors for the mammoth
-    public Mammoth(String mammothName, String mammothFurColor, int age, int tuskLength, double hunger, int hibernation, int happiness) {
+    public Mammoth(String mammothName, String mammothFurColor, int age, int tuskLength, double hunger, int hibernation, int happiness, boolean b) {
 
         this.mammothName = mammothName;
         this.mammothFurColor = mammothFurColor;
@@ -26,6 +24,7 @@ public class Mammoth {
         this.hunger = hunger;
         this.hibernation = hibernation;
         this.happiness = happiness;
+        this.isAlive = isAlive;
         //Interact with a VirtualPet object in this method
     }
 
@@ -41,6 +40,7 @@ public class Mammoth {
         if (age <= 10) {
             System.out.println("A year has passed and " + mammothName + " is now " + age + ".");
         } else if (age == 11) {
+            isAlive = false;
             System.out.println("The mighty mammoth's return to earth was never a permanent solution. " +
                     "With the death of " + mammothName + " the great lineage of beasts returns once more to cosmic slumber.");
         }
@@ -79,8 +79,9 @@ public class Mammoth {
             hunger = hunger - 4;
             System.out.println(new StringBuilder().append("Your pet ").append(mammothName).append("'s hunger has changed to ").append(hunger).toString());
         } else if (feedChoices == 4) {
+            hunger++;
             System.out.println(mammothName + " didn't get anything to eat!");
-            System.out.println(new StringBuilder().append("Your pet ").append(mammothName).append("'s hunger has not changed."));
+            System.out.println(new StringBuilder().append("Your pet ").append(mammothName).append("'s hunger has increased to "+ hunger));
         } else {
             System.out.println("Not Valid");
         }
@@ -116,7 +117,8 @@ public class Mammoth {
 
     public void care(){
         System.out.println(mammothName + " looks a little bored. What do you say we do something nice for them?\n");
-        System.out.println("[1=Take for a walk] [2=Polish their tusks] [3=Comb their "+mammothFurColor +" fur]");
+        System.out.println("[1=Take for a walk] [2=Polish their tusks] [3=Comb their "+mammothFurColor +" fur]"
+        + " [4=Ignore]");
         Scanner inputScanner = new Scanner(System.in);
         int careChoices = inputScanner.nextInt();
 
@@ -132,9 +134,43 @@ public class Mammoth {
             happiness = happiness + 1;
             System.out.println("Look at that pretty " + mammothFurColor + " fur! " + mammothName + "'s happiness level is now  " + happiness + ".");
         }
+        else if(careChoices==4){
+            happiness--;
+            System.out.println("You have chosen to ignore " +mammothName+ ". They're going to remember that!");
+            System.out.println("Their happiness level is now " +happiness);
+        }
         else{
             System.out.println("Invalid Choice");
         }
+    }
+
+    public void takeVitals(){
+        if (happiness >= 10){
+            happiness = 10;
+            System.out.println(mammothName + " is as happy as can be! Great work!");
+        }
+        if(happiness <=0){
+            isAlive = false;
+            System.out.println("Oh no! " + mammothName + "'s poor heart can't take it anymore...");
+            System.out.println("The mighty mammoth's return to earth was never a permanent solution. " +
+                    "With the death of " + mammothName + " the great lineage of beasts returns once more to cosmic slumber.");
+        }
+
+        if (hunger<=0){
+            hunger = 0;
+            System.out.println("Woah! " + mammothName + " is full as can be! They'll grow big and strong in no time!");
+        }
+        if(hunger<=12){
+            isAlive = false;
+            System.out.println("OH NO! You've neglected to feed " + mammothName + "!");
+            System.out.println("The mighty mammoth's return to earth was never a permanent solution. " +
+                    "With the death of " + mammothName + " the great lineage of beasts returns once more to cosmic slumber.");
+        }
+
+    }
+
+    public boolean getIsAlive(){
+        return isAlive;
     }
 }
 
