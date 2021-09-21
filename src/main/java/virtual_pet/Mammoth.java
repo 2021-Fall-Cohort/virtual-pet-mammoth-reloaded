@@ -12,6 +12,7 @@ public class Mammoth {
     private double hunger;
     private int hibernation;
     private int happiness;
+    private String[] foodOptions;
     private boolean isAlive;
 
     //constructors for the mammoth
@@ -24,6 +25,7 @@ public class Mammoth {
         this.hibernation = hibernation;
         this.happiness = happiness;
         this.isAlive = isAlive;
+        this.foodOptions = new String[] {"Feed Oats","Feed Peanuts","Feed Peanuts","Not Feed"};
         //Interact with a VirtualPet object in this method
     }
 
@@ -160,6 +162,10 @@ public class Mammoth {
 
     public boolean getIsAlive(){
         return isAlive;
+    }
+
+    public String[] getFoodOptions() {
+        return foodOptions;
     }
 }
 

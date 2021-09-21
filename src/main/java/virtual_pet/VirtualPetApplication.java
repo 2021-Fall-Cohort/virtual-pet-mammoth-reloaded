@@ -42,7 +42,14 @@ public class VirtualPetApplication {
             Scanner inputScanner = new Scanner(System.in);
             int mainLoop = inputScanner.nextInt();
                 if(mainLoop == 1){
-                    System.out.println("Do you want to feed your pet? Chose between \n [1=Feed Oats]   [2=Feed Peanuts]    [3=Feed bananas]    [4=Not Feed]?");
+                    //System.out.println("Do you want to feed your pet? Chose between \n "[1=Feed Oats]   [2=Feed Peanuts]    [3=Feed bananas]    [4=Not Feed]?");
+                    System.out.print("Do you want to feed your pet? Chose between \n" );
+                    int i =1;
+                    for (String foodOption: userMammoth.getFoodOptions()){
+                        System.out.print("["+ i +"="+foodOption+"]    ");
+                        i++;
+                    }
+                    System.out.print("\n");
                     inputScanner = new Scanner(System.in);
                     int feedChoices = inputScanner.nextInt();
                     userMammoth.feed(feedChoices);
