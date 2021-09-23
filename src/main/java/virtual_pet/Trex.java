@@ -32,5 +32,10 @@ public class Trex extends Pet{
             System.out.println("Invalid Choice");
         }
     }
+//
+//    @Override
+//    public String getName() {
+//        return petName;
+//    }
 
 }

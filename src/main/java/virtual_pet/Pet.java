@@ -96,11 +96,6 @@ public abstract class Pet {
 
     public abstract void care(int careChoices);
 
-//    public void takeVitals(){
-//
-//
-//    }
-
     public boolean getIsAlive() {
         return isAlive;
     }
@@ -109,7 +104,7 @@ public abstract class Pet {
         return foodOptions;
     }
 
-    public String getPetName() {
+    public String getName(){
         return petName;
     }
 }

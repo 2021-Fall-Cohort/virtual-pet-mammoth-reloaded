@@ -3,7 +3,7 @@ package virtual_pet;
 import virtual_pet.Pet;
 import virtual_pet.VirtualPetApplication;
 
-public  class Mammoth extends Pet implements VirtualPetApplication.Hibernation {
+public class Mammoth extends Pet {
 
     public Mammoth(String petName, String petColor, int age, double hunger, int happiness, boolean isAlive) {
         super(petName, petColor, age, hunger, happiness, isAlive);
@@ -46,7 +46,12 @@ public  class Mammoth extends Pet implements VirtualPetApplication.Hibernation {
         return super.getFoodOptions();
     }
 
-    @Override
+//    @Override
+//    public String getName() {
+//        return petName;
+//    }
+
+
     public void hibernation(int hibernateChoices) {
         if (hibernateChoices== 1) {
             happiness = happiness - 2;

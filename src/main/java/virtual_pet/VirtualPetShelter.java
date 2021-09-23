@@ -6,10 +6,12 @@ public class VirtualPetShelter {
 
     private ArrayList<Mammoth> shelter;
 
-    public void ArrayListApp() {
-        this.shelter = new ArrayList<Mammoth>();
+    public VirtualPetShelter() {
+            this.shelter = new ArrayList<Mammoth>();
+        }
+
+        public ArrayList<Mammoth> shelterList(){
+            return shelter;
+        }
+
     }
-    public ArrayList<Mammoth> shelterList(){
-        return shelter;
-    }
-}

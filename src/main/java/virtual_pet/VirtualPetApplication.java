@@ -33,7 +33,22 @@ public  class VirtualPetApplication {
 //        int mammothAge = input.nextLine();
 //        System.out.println ("Your pet " + mammothName + ", is " + mammothFurColor + ", and " + mammothAge + " years old! ");
 
-        Pet userPet = new Pet(petName, petColor, 0, 9,  1,  5,true);
+        Pet userPet = new Pet(petName, petColor, 0, 9, 1, true) {
+            @Override
+            public void petReport() {
+
+            }
+
+            @Override
+            public void care(int careChoices) {
+
+            }
+
+            @Override
+            public String getName() {
+                return petName;
+            }
+        };
 
         while(userPet.getIsAlive()){
 
@@ -59,7 +74,7 @@ public  class VirtualPetApplication {
                     System.out.println("[1=Europa]  [2=Siberia] [3=Himalayan Mountains] [4=Mount Kilimanjaro]");
                     inputScanner = new Scanner(System.in);
                     int hibernateChoices = inputScanner.nextInt();
-                    userPet.hibernate(hibernateChoices);
+//                    userPet.hibernation(hibernateChoices);
                 }
                 if(mainLoop == 3){
                     System.out.println(petName + " looks a little bored. What do you say we do something nice for them?\n");
