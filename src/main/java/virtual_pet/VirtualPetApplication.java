@@ -24,8 +24,8 @@ public  class VirtualPetApplication {
         //virtual_pet.Mammoth Pet's fur Color
         System.out.println("What color is your pet virtual_pet.Mammoth? Red, Green, Orange, Brown, Blue, Yellow, or Indigo?");
         input = new Scanner(System.in);
-        String mammothFurColor = input.nextLine();
-        System.out.println("Your pet " + petName  + ", is " + mammothFurColor + "!");
+        String petColor = input.nextLine();
+        System.out.println("Your pet " + petName  + ", is " + petColor + "!");
 
 //        //virtual_pet.Mammoth Age
 //        System.out.println("How old is your pet?");
@@ -33,7 +33,7 @@ public  class VirtualPetApplication {
 //        int mammothAge = input.nextLine();
 //        System.out.println ("Your pet " + mammothName + ", is " + mammothFurColor + ", and " + mammothAge + " years old! ");
 
-        Pet userPet = new Pet(petName, petColor, 0, 9,  1,  5, true);
+        Pet userPet = new Pet(petName, petColor, 0, 9,  1,  5,true);
 
         while(userPet.getIsAlive()){
 
@@ -55,15 +55,15 @@ public  class VirtualPetApplication {
                     userPet.feed(feedChoices);
                 }
                 if(mainLoop == 2){
-                    System.out.println("Winter is arriving for " + mammothName + "." + "Where do you want them to hibernate?");
+                    System.out.println("Winter is arriving for " + petName + "." + "Where do you want them to hibernate?");
                     System.out.println("[1=Europa]  [2=Siberia] [3=Himalayan Mountains] [4=Mount Kilimanjaro]");
                     inputScanner = new Scanner(System.in);
                     int hibernateChoices = inputScanner.nextInt();
                     userPet.hibernate(hibernateChoices);
                 }
                 if(mainLoop == 3){
-                    System.out.println(mammothName + " looks a little bored. What do you say we do something nice for them?\n");
-                    System.out.println("[1=Take for a walk] [2=Polish their tusks] [3=Comb their "+mammothFurColor +" fur]"
+                    System.out.println(petName + " looks a little bored. What do you say we do something nice for them?\n");
+                    System.out.println("[1=Take for a walk] [2=Polish their tusks] [3=Comb their "+ petColor +" fur]"
                             + " [4=Ignore]");
                     inputScanner = new Scanner(System.in);
                     int careChoices = inputScanner.nextInt();
