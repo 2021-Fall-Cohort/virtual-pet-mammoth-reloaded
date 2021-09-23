@@ -26,6 +26,10 @@ public abstract class Pet {
         //Interact with a VirtualPet object in this method
     }
 
+    public Pet() {
+
+    }
+
     public abstract void petReport();
 
     public void tick() {
@@ -108,4 +112,6 @@ public abstract class Pet {
     public String[] getFoodOptions() {
         return foodOptions;
     }
+
+    public abstract String getName();
 }

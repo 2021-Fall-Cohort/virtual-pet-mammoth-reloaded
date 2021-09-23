@@ -3,10 +3,14 @@ package virtual_pet;
 import virtual_pet.Pet;
 import virtual_pet.VirtualPetApplication;
 
-public  class Mammoth extends Pet implements VirtualPetApplication.Hibernation {
+public abstract class Mammoth extends Pet implements VirtualPetApplication.Hibernation {
 
     public Mammoth(String petName, String petColor, int age, double hunger, int happiness, boolean isAlive) {
         super(petName, petColor, age, hunger, happiness, isAlive);
+    }
+
+    public Mammoth(String s, String tre, int i1, int i,boolean isAlive) {
+        super();
     }
 
     @Override
