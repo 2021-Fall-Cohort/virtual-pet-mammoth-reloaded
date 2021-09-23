@@ -4,7 +4,7 @@ package virtual_pet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,11 +16,36 @@ public class VirtualPetShelterTest  {
     void setUp(){
         underTest = new VirtualPetShelter();
     }
-
+    //Testing the code by creating an instance of Mammoth, adding it to the arraylist, checking that its there, and getting the name via assertEq.
     @Test
      void shouldCreateClassAndAddToArrayList() {
         Mammoth tre = new Mammoth("Tre", "gray", 6, 2, 2, true);
         underTest.shelterList().add(tre);
-        assertEquals("Tre",underTest.shelterList().get(0).getName());
+        assertEquals("Tre", underTest.shelterList().get(0).getName());
     }
-}
+
+    //Making mammoths 1-3, checking for the size of the ArrayList = # of mammoths in the test
+    @Test
+    void shouldCreateManyMammothAndToArrayList() {
+        Mammoth tre = new Mammoth("Tre", "gray", 6, 2, 2, true);
+        Mammoth stew = new Mammoth("Stew","Yellow",1,2,2,true);
+        Mammoth ben = new Mammoth("Ben","blue",0,1,4,true);
+        underTest.shelterList().add(tre);
+        underTest.shelterList().add(stew);
+        underTest.shelterList().add(ben);
+        int sizeOfArrayList = underTest.shelterList().size();
+        assertEquals(3,sizeOfArrayList);
+    }
+
+    @Test
+    void shouldRemovePetFromArrayList(){
+        Mammoth tre = new Mammoth("Tre", "gray", 6, 2, 2, true);
+        Mammoth stew = new Mammoth("Stew","Yellow",1,2,2,true);
+        Mammoth ben = new Mammoth("Ben","blue",0,1,4,true);
+        underTest.shelterList().add(tre);
+        underTest.shelterList().add(stew);
+        underTest.shelterList().add(ben);
+        underTest.shelterList().remove();
+        int sizeOfArrayList = underTest.shelterList().size();
+    }
+    }

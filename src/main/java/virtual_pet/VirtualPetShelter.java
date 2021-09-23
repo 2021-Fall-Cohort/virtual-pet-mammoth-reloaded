@@ -1,5 +1,6 @@
 package virtual_pet;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class VirtualPetShelter {
@@ -10,8 +11,7 @@ public class VirtualPetShelter {
             this.shelter = new ArrayList<Mammoth>();
         }
 
-        public ArrayList<Mammoth> shelterList(){
-            return shelter;
+        public ArrayList<Mammoth> shelterList(){return shelter;
         }
 
     }
