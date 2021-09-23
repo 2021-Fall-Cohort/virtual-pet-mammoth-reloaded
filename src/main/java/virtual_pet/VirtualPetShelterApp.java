@@ -1,5 +1,5 @@
 package virtual_pet;
 
-public class VirtualPetShelterApp {
 
-}
+public class VirtualPetShelterApp {
+    }

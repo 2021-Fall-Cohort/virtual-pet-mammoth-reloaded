@@ -108,4 +108,8 @@ public abstract class Pet {
     public String[] getFoodOptions() {
         return foodOptions;
     }
+
+    public String getPetName() {
+        return petName;
+    }
 }
