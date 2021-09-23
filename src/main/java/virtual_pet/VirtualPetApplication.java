@@ -18,14 +18,14 @@ public  class VirtualPetApplication {
         //virtual_pet.Mammoth Name from User
         System.out.println("\nWhat is your pets name? ");
         Scanner input = new Scanner(System.in);
-        String mammothName = input.nextLine();
-        System.out.println("Welcome to the wintry world " + mammothName + "!");
+        String petName= input.nextLine();
+        System.out.println("Welcome to the wintry world " + petName + "!");
 
         //virtual_pet.Mammoth Pet's fur Color
         System.out.println("What color is your pet virtual_pet.Mammoth? Red, Green, Orange, Brown, Blue, Yellow, or Indigo?");
         input = new Scanner(System.in);
         String mammothFurColor = input.nextLine();
-        System.out.println("Your pet " + mammothName  + ", is " + mammothFurColor + "!");
+        System.out.println("Your pet " + petName  + ", is " + mammothFurColor + "!");
 
 //        //virtual_pet.Mammoth Age
 //        System.out.println("How old is your pet?");
