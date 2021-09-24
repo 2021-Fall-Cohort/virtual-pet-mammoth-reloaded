@@ -16,11 +16,10 @@ public class VirtualPetShelterTest  {
     void setUp(){
         underTest = new VirtualPetShelter();
     }
-
     //Testing the code by creating an instance of Mammoth, adding it to the arraylist, checking that its there, and getting the name via assertEq.
     @Test
      void shouldCreateClassAndAddToArrayList() {
-        Mammoth tre = new Mammoth("Tre", "gray", 6, 2, 2, 4,true);
+        Mammoth tre = new Mammoth("Tre", "gray", 6, 2, 2, 5,true);
         underTest.getPets().add(tre);
         assertEquals("Tre", underTest.getPets().get(0).getName());
     }
@@ -34,17 +33,17 @@ public class VirtualPetShelterTest  {
 
     //Creating version of mammoth, adding to the array, and then removing one of the mammoths based on if the user chooses prompt 2
     @Test
-    void shouldRemovePetFromArrayList(){
-        Mammoth mac = new Mammoth("Mac", "gray", 6, 2, 2, 5, true);
-        underTest.getPets().add(mac);
-        underTest.removePet(mac);
+    void shouldRemovePetFromArrayList() {
+        Mammoth mac = new Mammoth("Mac","grey",6,2,2,5, true);
+        underTest.getPets();
+        underTest .removePet(mac);
         int sizeOfArrayList = underTest.getPets().size();
         assertEquals(4, sizeOfArrayList);
-    }
+        }
 
     @Test
-    void admitPetShouldAddPetToArrayList(){
-        Mammoth mac = new Mammoth("Mac", "gray", 6, 2, 2, 5, true);
+    void shouldAddPetFromArrayList(){
+        Mammoth mac = new Mammoth("Mac","grey",6,2,2,5,true);
         underTest.admitPet(mac);
         int sizeOfArrayList = underTest.getPets().size();
         assertEquals(5, sizeOfArrayList);
@@ -52,18 +51,18 @@ public class VirtualPetShelterTest  {
 
     @Test
     void feedMethodShouldReduceHunger(){
-        Mammoth mac = new Mammoth("Mac", "gray", 6, 2, 2, 5, true);
+        Mammoth mac = new Mammoth("Mac","grey",6,2,2,5, true);
         underTest.admitPet(mac);
         underTest.feedPets();
-        assertEquals(0, mac.getHunger());
+        int sizeOfArrayList = underTest.getPets().size();
+        assertEquals(0, mac.hunger);
     }
 
     @Test
-    void waterMethodShouldReduceThirst(){
-        Mammoth mac = new Mammoth("Mac", "gray", 6, 2, 2, 5, true);
+    void waterMethodShouldRecueThirst(){
+        Mammoth mac = new Mammoth("Mac","grey",6,2,2,5, true);
         underTest.admitPet(mac);
         underTest.waterPets();
-        assertEquals(4, mac.getThirst());
     }
 
     @Test
