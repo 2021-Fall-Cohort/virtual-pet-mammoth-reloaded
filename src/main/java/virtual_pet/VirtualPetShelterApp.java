@@ -1,9 +1,6 @@
 package virtual_pet;
 
-import javax.sound.midi.Soundbank;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class VirtualPetShelterApp {
@@ -21,7 +18,8 @@ public class VirtualPetShelterApp {
         while (playGame) {
             System.out.println("Welcome to the WCCI-ship!" + " What would like to do?");
             petsStatus(myShelter.getPets());
-            System.out.println("1=View list of pets in the WCCI!\t2=Adopt a pet!\t3=Admit a pet!\t4=Quit Game?");
+            System.out.println("1=Feed all pets in WCCI!\t2=Adopt a pet!\t3=Admit a pet!\t" +
+                    "4=Water all pets in WCCI\t5=Quit Game?");
 
             int mainShelterChoices = inputScanner.nextInt();
 
@@ -29,18 +27,21 @@ public class VirtualPetShelterApp {
             switch (mainShelterChoices) {
 
                 case 1:
-                    //print out contents of option 1 - "View list of pets"
-//                .toString();
-//                    System.out.println(shelter);
+                    System.out.println("All pets have been fed");
+                    myShelter.feedPets();
                     break;
                 case 2:
                     //print out contents of option 2 - "Adopt a pet"
+//                    myShelter.retrievePetByName().removePet();
                     break;
                 case 3:
                     //print out contents of option 3 - "Admit a pet"
                     admitPet(myShelter);
                     break;
                 case 4:
+                    myShelter.waterPets();
+                    break;
+                case 5:
                     playGame = false;
                     break;
             }
@@ -53,8 +54,11 @@ public class VirtualPetShelterApp {
     }
 
     public void petsStatus(ArrayList<Pet> pets) {
+        System.out.println("Name\t|Happiness|\t|Hunger|\t|Color|\t|Age|");
+        System.out.println("______________________________________________");
         for (Pet refPet: pets){
-            System.out.println("Name: " + refPet.petName);
+            System.out.println(refPet.petName +"\t     " + refPet.happiness + "\t     " +refPet.hunger + "\t     "
+                    +refPet.petColor +"\t     "+refPet.age);
         }
     }
 

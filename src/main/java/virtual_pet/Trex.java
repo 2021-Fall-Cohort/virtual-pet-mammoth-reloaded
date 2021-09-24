@@ -3,8 +3,8 @@ package virtual_pet;
 import virtual_pet.Pet;
 
 public class Trex extends Pet{
-    public Trex(String petName, String petColor, int age, double hunger, int happiness, boolean isAlive) {
-        super(petName, petColor, age, hunger, happiness, isAlive);
+    public Trex(String petName, String petColor, int age, double hunger, int happiness, int thirst, boolean isAlive) {
+        super(petName, petColor, age, hunger, happiness, thirst, isAlive);
     }
 
     @Override
