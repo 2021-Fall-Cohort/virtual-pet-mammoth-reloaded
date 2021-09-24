@@ -88,13 +88,13 @@ public abstract class Pet {
                 break;
         }
         hunger = Math.max(0, hunger - foodAmount);
-
-        public void water () {
-            thirst--;
-            }
-            thirst = Math.max(0, thirst--);
-        }
     }
+
+    public void water() {
+        thirst--;
+        thirst = Math.max(0, thirst--);
+    }
+
 
     public abstract void care(int careChoices);
 
