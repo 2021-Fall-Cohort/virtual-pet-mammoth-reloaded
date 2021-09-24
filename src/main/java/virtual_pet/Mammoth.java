@@ -31,9 +31,8 @@ public class Mammoth extends Pet {
     public void petReport() {
         System.out.println("virtual_pet.Mammoth Report: \n" + petName + "the " + petColor + "mammoth is currently " + age);
         System.out.print(" years old. \n Their hunger level is " + hunger + ". \n Their tusk is " );
-
-
     }
+
     @Override
     public boolean getIsAlive() {
         return super.getIsAlive();

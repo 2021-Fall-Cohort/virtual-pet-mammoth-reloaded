@@ -29,6 +29,8 @@ public class VirtualPetShelterApp {
 
             switch (mainShelterChoices) {
 
+//                VirtualPetShelter.tick();
+
                 case 1:
                     //print out contents of option 1 - "View list of pets"
                     System.out.println("All pets have been feed");
@@ -42,7 +44,12 @@ public class VirtualPetShelterApp {
                     break;
                 case 3:
                     //print out contents of option 3 - "Admit a pet"
-                    admitPet(myShelter);
+                    System.out.println("What is your pet's name?");
+                    String userName = inputScanner.nextLine();
+                    System.out.println("What is your pet's color in ROYGBIV?");
+                    String userColor = inputScanner.nextLine();
+                    Mammoth userMammoth = new Mammoth(userName, userColor, 0, 5,5,5, true);
+                    myShelter.admitPet(userMammoth);
                     break;
                 case 4:
                     myShelter.waterPets();
@@ -69,8 +76,5 @@ public class VirtualPetShelterApp {
             System.out.println("Name: " + refPet.petName + "\t     " + refPet.petName + "\t     " + refPet.petName + "\t     " + refPet.petName + "\t     ");
         }
     }
-
-
-
 }
 

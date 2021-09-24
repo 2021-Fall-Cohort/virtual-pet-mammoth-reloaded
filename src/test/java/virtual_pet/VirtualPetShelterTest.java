@@ -79,6 +79,5 @@ public class VirtualPetShelterTest  {
         Pet tre = underTest.getPets().get(0);
         underTest.removePet(tre);
         assertNull(underTest.retrievePetByName("Tre"));
-
     }
 }
