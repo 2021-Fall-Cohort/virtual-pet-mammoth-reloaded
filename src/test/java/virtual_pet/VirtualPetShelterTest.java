@@ -19,36 +19,49 @@ public class VirtualPetShelterTest  {
     //Testing the code by creating an instance of Mammoth, adding it to the arraylist, checking that its there, and getting the name via assertEq.
     @Test
      void shouldCreateClassAndAddToArrayList() {
-        Mammoth tre = new Mammoth("Tre", "gray", 6, 2, 2, true);
-        underTest.shelterList().add(tre);
-        assertEquals("Tre", underTest.shelterList().get(0).getName());
+        Mammoth tre = new Mammoth("Tre", "gray", 6, 2, 2, 5,true);
+        underTest.getPets().add(tre);
+        assertEquals("Tre", underTest.getPets().get(0).getName());
     }
 
     //Making mammoths 1-3, checking for the size of the ArrayList = # of mammoths in the test
     @Test
     void shouldCreateManyMammothAndToArrayList() {
-        Mammoth tre = new Mammoth("Tre", "gray", 6, 2, 2, true);
-        Mammoth stew = new Mammoth("Stew","Yellow",1,2,2,true);
-        Mammoth ben = new Mammoth("Ben","blue",0,1,4,true);
-        underTest.shelterList().add(tre);
-        underTest.shelterList().add(stew);
-        underTest.shelterList().add(ben);
-        int sizeOfArrayList = underTest.shelterList().size();
-        assertEquals(3,sizeOfArrayList);
+        int sizeOfArrayList = underTest.getPets().size();
+        assertEquals(4,sizeOfArrayList);
     }
 
     //Creating version of mammoth, adding to the array, and then removing one of the mammoths based on if the user chooses prompt 2
     @Test
-    void shouldRemovePetFromArrayList(){
-        Mammoth tre = new Mammoth("Tre", "gray", 6, 2, 2, true);
-        Mammoth stew = new Mammoth("Stew","Yellow",1,2,2,true);
-        Mammoth ben = new Mammoth("Ben","blue",0,1,4,true);
-        Mammoth joe = new Mammoth("Joe","Brown",0,2,7,true);
-        underTest.shelterList().add(tre);
-        underTest.shelterList().add(stew);
-        underTest.shelterList().add(ben);
-        underTest.shelterList().add(joe);
-//        underTest.shelterList().remove();
-        int sizeOfArrayList = underTest.shelterList().size();
+    void shouldRemovePetFromArrayList() {
+        Mammoth mac = new Mammoth("Mac","grey",6,2,2,5, true);
+        underTest.getPets();
+        underTest .removePet(mac);
+        int sizeOfArrayList = underTest.getPets().size();
+        assertEquals(4, sizeOfArrayList);
+        }
+
+    @Test
+    void shouldAddPetFromArrayList(){
+        Mammoth mac = new Mammoth("Mac","grey",6,2,2,5,true);
+        underTest.admitPet(mac);
+        int sizeOfArrayList = underTest.getPets().size();
+        assertEquals(5, sizeOfArrayList);
     }
+
+    @Test
+    void feedMethodShouldReduceHunger(){
+        Mammoth mac = new Mammoth("Mac","grey",6,2,2,5, true);
+        underTest.admitPet(mac);
+        underTest.feedPets();
+        int sizeOfArrayList = underTest.getPets().size();
+        assertEquals(0, mac.hunger);
     }
+
+    @Test
+    void waterMethodShouldRecueThirst(){
+        Mammoth mac = new Mammoth("Mac","grey",6,2,2,5, true);
+        underTest.admitPet(mac);
+        underTest.waterPets();
+    }
+}

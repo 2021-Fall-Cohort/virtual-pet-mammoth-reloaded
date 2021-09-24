@@ -21,7 +21,7 @@ public class VirtualPetShelterApp {
         while (playGame) {
             System.out.println("Welcome to the WCCI-ship!" + " What would like to do?");
             petsStatus(myShelter.getPets());
-            System.out.println("1=View list of pets in the WCCI!\t2=Adopt a pet!\t3=Admit a pet!\t4=Quit Game?");
+            System.out.println("1=Feed all pets in the WCCI-ship!\t2=Adopt a pet!\t3=Admit a pet!\t4=Water all the pets in the WCCI-ship\t5=Quit Game?");
 
             int mainShelterChoices = inputScanner.nextInt();
 
@@ -30,11 +30,12 @@ public class VirtualPetShelterApp {
 
                 case 1:
                     //print out contents of option 1 - "View list of pets"
-//                .toString();
-//                    System.out.println(shelter);
+                    System.out.println("All pets have been feed");
+                    myShelter.feedPets();
                     break;
                 case 2:
                     //print out contents of option 2 - "Adopt a pet"
+//                    myShelter.retrievePetByName(name).removePet;
                     break;
                 case 3:
                     //print out contents of option 3 - "Admit a pet"
@@ -53,10 +54,15 @@ public class VirtualPetShelterApp {
     }
 
     public void petsStatus(ArrayList<Pet> pets) {
+//        System.out.format("%-2s%10d%-16s", string1, string2,string3,string4, string5);
+        System.out.printf("|Name|\t|Happiness|\t|Hunger|\t|Color|\t|Age|");
+        System.out.println("---------------------------------------------------");
         for (Pet refPet: pets){
-            System.out.println("Name: " + refPet.petName);
+            System.out.println("Name: " + refPet.petName + "\t     " + refPet.petName + "\t     " + refPet.petName + "\t     " + refPet.petName + "\t     ");
         }
     }
+
+
 
 }
 

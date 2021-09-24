@@ -1,12 +1,10 @@
 package virtual_pet;
 
-import virtual_pet.Pet;
-import virtual_pet.VirtualPetApplication;
 
 public class Mammoth extends Pet {
 
-    public Mammoth(String petName, String petColor, int age, double hunger, int happiness, boolean isAlive) {
-        super(petName, petColor, age, hunger, happiness, isAlive);
+    public Mammoth(String petName, String petColor, int age, double hunger, int happiness, int thirst, boolean isAlive) {
+        super(petName, petColor, age, hunger, happiness,thirst, isAlive);
     }
 
     @Override
@@ -45,11 +43,6 @@ public class Mammoth extends Pet {
     public String[] getFoodOptions() {
         return super.getFoodOptions();
     }
-
-//    @Override
-//    public String getName() {
-//        return petName;
-//    }
 
 
     public void hibernation(int hibernateChoices) {

@@ -8,15 +8,16 @@ public class VirtualPetShelter {
 
     public VirtualPetShelter() {
             this.pets = new ArrayList<Pet>();
-        pets.add(new Mammoth("Tre", "gray", 6, 2, 2, true));
-        pets.add( new Mammoth("Stew","Yellow",1,2,2,true));
-        pets.add(new Mammoth("Ben","blue",0,1,4,true));
-        pets.add(new Mammoth("Joe","Brown",0,2,7,true));
+        pets.add(new Mammoth("Tre", "gray", 6, 2, 2, 5,true));
+        pets.add( new Mammoth("Stew","Yellow",1,2,2,5,true));
+        pets.add(new Mammoth("Ben","blue",0,1,4,5,true));
+        pets.add(new Mammoth("Joe","Brown",0,2,7,5,true));
     }
 
         public ArrayList<Pet> getPets(){
             return pets;
         }
+
     public void admitPet(Pet pet) {
         pets.add(pet);
     }

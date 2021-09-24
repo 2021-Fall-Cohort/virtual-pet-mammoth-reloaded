@@ -10,11 +10,12 @@ public abstract class Pet {
     protected int age;
     protected double hunger;
     protected int happiness;
+    protected int thirst;
     protected String[] foodOptions;
     protected boolean isAlive;
 
     //constructors for the mammoth
-    public Pet(String petName, String petColor, int age, double hunger, int happiness, boolean isAlive) {
+    public Pet(String petName, String petColor, int age, double hunger, int happiness, int thirst, boolean isAlive) {
 
         this.petName = petName;
         this.petColor = petColor;
@@ -74,25 +75,26 @@ public abstract class Pet {
 
 
     public void feed(int feedChoices) {
+        int foodAmount = 0;
+        switch (feedChoices) {
+            case 1:
+                foodAmount = 1;
+                break;
+            case 2:
+                foodAmount = 2;
+                break;
+            case 3:
+                foodAmount = 4;
+                break;
+        }
+        hunger = Math.max(0, hunger - foodAmount);
 
-        if (feedChoices == 1) {
-            hunger = hunger - 1;
-            System.out.println(new StringBuilder().append("Your pet ").append(petName).append("'s hunger has changed to ").append(hunger).toString());
-        } else if (feedChoices == 2) {
-            hunger = hunger - 2;
-            System.out.println(new StringBuilder().append("Your pet ").append(petName).append("'s hunger has changed to ").append(hunger).toString());
-        } else if (feedChoices == 3) {
-            hunger = hunger - 4;
-            System.out.println(new StringBuilder().append("Your pet ").append(petName).append("'s hunger has changed to ").append(hunger).toString());
-        } else if (feedChoices == 4) {
-            hunger++;
-            System.out.println(petName + " didn't get anything to eat!");
-            System.out.println(new StringBuilder().append("Your pet ").append(petName).append("'s hunger has increased to " + hunger));
-        } else {
-            System.out.println("Not Valid");
+        public void water () {
+            thirst--;
+            }
+            thirst = Math.max(0, thirst--);
         }
     }
-
 
     public abstract void care(int careChoices);
 
@@ -106,5 +108,13 @@ public abstract class Pet {
 
     public String getName(){
         return petName;
+    }
+
+    public double getHunger() {
+        return hunger;
+    }
+
+    public int getThirst() {
+        return thirst;
     }
 }
