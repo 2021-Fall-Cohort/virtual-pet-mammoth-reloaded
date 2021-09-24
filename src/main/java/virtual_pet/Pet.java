@@ -22,7 +22,7 @@ public abstract class Pet {
         this.hunger = hunger;
         this.happiness = happiness;
         this.isAlive = isAlive;
-        this.foodOptions = new String[]{"Feed Oats", "Feed Peanuts", "Feed Peanuts", "Not Feed"};
+        this.foodOptions = new String[]{"Feed Oats", "Feed 🥜 ", "Feed Peanuts", "Not Feed"};
         //Interact with a VirtualPet object in this method
     }
 

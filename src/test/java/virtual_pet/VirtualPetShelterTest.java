@@ -37,15 +37,18 @@ public class VirtualPetShelterTest  {
         assertEquals(3,sizeOfArrayList);
     }
 
+    //Creating version of mammoth, adding to the array, and then removing one of the mammoths based on if the user chooses prompt 2
     @Test
     void shouldRemovePetFromArrayList(){
         Mammoth tre = new Mammoth("Tre", "gray", 6, 2, 2, true);
         Mammoth stew = new Mammoth("Stew","Yellow",1,2,2,true);
         Mammoth ben = new Mammoth("Ben","blue",0,1,4,true);
+        Mammoth joe = new Mammoth("Joe","Brown",0,2,7,true);
         underTest.shelterList().add(tre);
         underTest.shelterList().add(stew);
         underTest.shelterList().add(ben);
-        underTest.shelterList().remove();
+        underTest.shelterList().add(joe);
+//        underTest.shelterList().remove();
         int sizeOfArrayList = underTest.shelterList().size();
     }
     }
