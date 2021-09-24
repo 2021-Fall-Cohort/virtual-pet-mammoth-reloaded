@@ -19,7 +19,7 @@ public class VirtualPetShelterApp {
             System.out.println("Welcome to the WCCI-ship!" + " What would like to do?");
             petsStatus(myShelter.getPets());
             System.out.println("1=Feed all pets in WCCI!\t2=Adopt a pet!\t3=Admit a pet!\t" +
-                    "4=Water all pets in WCCI\t5=Quit Game?");
+                    "4=Water all pets in WCCI\t5=Play with all of the pets\t6=Quit Game?");
 
             int mainShelterChoices = inputScanner.nextInt();
 
@@ -42,6 +42,8 @@ public class VirtualPetShelterApp {
                     myShelter.waterPets();
                     break;
                 case 5:
+
+                case 6:
                     playGame = false;
                     break;
             }

@@ -65,4 +65,11 @@ public class VirtualPetShelterTest  {
         underTest.waterPets();
         assertEquals(4, mac.getThirst());
     }
+
+    @Test
+    void careMethodShouldIncreaseHappiness(){
+        underTest.getPets();
+        underTest.careForPets();
+        assertEquals(4, underTest.getPets().get(0).getHappiness());
+    }
 }

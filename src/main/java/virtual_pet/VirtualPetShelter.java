@@ -46,4 +46,10 @@ public class VirtualPetShelter {
             refPet.water();
         }
     }
+
+    public void careForPets(){
+        for (Pet refPet: pets){
+            refPet.care(2);
+        }
+    }
 }

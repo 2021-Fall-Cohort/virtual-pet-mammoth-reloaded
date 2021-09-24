@@ -49,25 +49,25 @@ public class Mammoth extends Pet {
 //    }
 
 
-    public void hibernation(int hibernateChoices) {
-        if (hibernateChoices== 1) {
-            happiness = happiness - 2;
-            System.out.println(new StringBuilder().append("Your pet ").append(petName).append(" is being hunted by the Neanderthals of Europa"));
-            System.out.println(petName + " now has a happiness level of " + happiness + ".");
-        } else if (hibernateChoices == 2) {
-            happiness = happiness - 3;
-            System.out.println(new StringBuilder().append("Your pet ").append(petName).append(" is freezing! They have frozen their heart out!"));
-            System.out.println(petName + " now has a happiness level of " + happiness + ".");
-        } else if (hibernateChoices == 3) {
-            happiness = happiness + 2;
-            System.out.println(new StringBuilder().append("Your pet ").append(petName).append(" has found the perfect spot to rest and wait out the winter!"));
-            System.out.println(petName + " now has a happiness level of " + happiness + ".");
-        } else if(hibernateChoices == 4) {
-            happiness = happiness + 3;
-            System.out.println(new StringBuilder().append("Your pet ").append(petName).append(" has found other mammoths to hang out with while they wait out the winter!"));
-            System.out.println(petName + " now has a happiness level of " + happiness + ".");
-        } else {
-            System.out.println("Not Valid");
-        }
-    }
+//    public void hibernation(int hibernateChoices) {
+//        if (hibernateChoices== 1) {
+//            happiness = happiness - 2;
+//            System.out.println(new StringBuilder().append("Your pet ").append(petName).append(" is being hunted by the Neanderthals of Europa"));
+//            System.out.println(petName + " now has a happiness level of " + happiness + ".");
+//        } else if (hibernateChoices == 2) {
+//            happiness = happiness - 3;
+//            System.out.println(new StringBuilder().append("Your pet ").append(petName).append(" is freezing! They have frozen their heart out!"));
+//            System.out.println(petName + " now has a happiness level of " + happiness + ".");
+//        } else if (hibernateChoices == 3) {
+//            happiness = happiness + 2;
+//            System.out.println(new StringBuilder().append("Your pet ").append(petName).append(" has found the perfect spot to rest and wait out the winter!"));
+//            System.out.println(petName + " now has a happiness level of " + happiness + ".");
+//        } else if(hibernateChoices == 4) {
+//            happiness = happiness + 3;
+//            System.out.println(new StringBuilder().append("Your pet ").append(petName).append(" has found other mammoths to hang out with while they wait out the winter!"));
+//            System.out.println(petName + " now has a happiness level of " + happiness + ".");
+//        } else {
+//            System.out.println("Not Valid");
+//        }
+//    }
 }

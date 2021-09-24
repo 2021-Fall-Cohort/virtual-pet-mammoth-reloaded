@@ -117,4 +117,8 @@ public abstract class Pet {
     public int getThirst() {
         return thirst;
     }
+
+    public int getHappiness() {
+        return happiness;
+    }
 }
