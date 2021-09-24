@@ -25,7 +25,7 @@ public class VirtualPetShelterApp {
                     "4=Water all pets in WCCI\t5=Play with all of the pets\t6=Quit Game?");
 
             int mainShelterChoices = inputScanner.nextInt();
-
+            inputScanner.nextLine();
 
             switch (mainShelterChoices) {
 
@@ -36,7 +36,9 @@ public class VirtualPetShelterApp {
                     break;
                 case 2:
                     //print out contents of option 2 - "Adopt a pet"
-//                    myShelter.retrievePetByName(name).removePet;
+                    System.out.println("What pet do you want to adopt?");
+                    String name = inputScanner.nextLine();
+                    myShelter.removePet(myShelter.retrievePetByName(name));
                     break;
                 case 3:
                     //print out contents of option 3 - "Admit a pet"

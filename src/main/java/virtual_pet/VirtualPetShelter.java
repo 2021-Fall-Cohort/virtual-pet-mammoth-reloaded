@@ -7,7 +7,7 @@ public class VirtualPetShelter {
     private ArrayList<Pet> pets;
 
     public VirtualPetShelter() {
-            this.pets = new ArrayList<Pet>();
+        this.pets = new ArrayList<Pet>();
         pets.add(new Mammoth("Tre", "gray", 6, 2, 2, 5,true));
         pets.add( new Mammoth("Stew","Yellow",1,2,2,5,true));
         pets.add(new Mammoth("Ben","blue",0,1,4,5,true));

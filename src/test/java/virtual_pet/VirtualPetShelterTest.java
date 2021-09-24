@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 
 //import java.util.ArrayList;
 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class VirtualPetShelterTest  {
   VirtualPetShelter underTest;
@@ -70,5 +72,13 @@ public class VirtualPetShelterTest  {
         underTest.getPets();
         underTest.careForPets();
         assertEquals(4, underTest.getPets().get(0).getHappiness());
+    }
+
+    @Test
+    void adoptChoiceShouldRemovePetFromArray(){
+        Pet tre = underTest.getPets().get(0);
+        underTest.removePet(tre);
+        assertNull(underTest.retrievePetByName("Tre"));
+
     }
 }
