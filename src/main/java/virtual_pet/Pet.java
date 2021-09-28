@@ -124,4 +124,10 @@ public abstract class Pet {
     public int getHappiness() {
         return happiness;
     }
+
+    public int getAge() {
+        return age;
+    }
+
+    public abstract void tick();
 }

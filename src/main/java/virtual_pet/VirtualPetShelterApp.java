@@ -22,14 +22,14 @@ public class VirtualPetShelterApp {
             System.out.println("Welcome to the WCCI-ship!" + " What would like to do?");
             petsStatus(myShelter.getPets());
             System.out.println("1=Feed all pets in WCCI!\t2=Adopt a pet!\t3=Admit a pet!\t" +
-                    "4=Water all pets in WCCI\t5=Play with all of the pets\t6=Quit Game?");
+                    "4=Water all pets in WCCI\t5=Care for all of the pets\t6=Quit Game?");
 
             int mainShelterChoices = inputScanner.nextInt();
             inputScanner.nextLine();
 
-            switch (mainShelterChoices) {
+            myShelter.tick();
 
-//                VirtualPetShelter.tick();
+            switch (mainShelterChoices) {
 
                 case 1:
                     //print out contents of option 1 - "View list of pets"
@@ -55,12 +55,12 @@ public class VirtualPetShelterApp {
                     myShelter.waterPets();
                     break;
                 case 5:
-
+                    myShelter.careForPets();
+                    break;
                 case 6:
                     playGame = false;
                     break;
             }
-
         }
     }
 
@@ -69,11 +69,11 @@ public class VirtualPetShelterApp {
     }
 
     public void petsStatus(ArrayList<Pet> pets) {
-//        System.out.format("%-2s%10d%-16s", string1, string2,string3,string4, string5);
-        System.out.printf("|Name|\t|Happiness|\t|Hunger|\t|Color|\t|Age|");
+//      System.out.format("%-2s%10d%-16s", string1, string2,string3,string4, string5);
+        System.out.println("|Name|\t|Happiness|\t|Hunger|\t|Age|");
         System.out.println("---------------------------------------------------");
         for (Pet refPet: pets){
-            System.out.println("Name: " + refPet.petName + "\t     " + refPet.petName + "\t     " + refPet.petName + "\t     " + refPet.petName + "\t     ");
+            System.out.println(refPet.getName() + "\t|     " + refPet.getHappiness() + "\t|     " + refPet.getHunger() + "\t|     " + refPet.getAge());
         }
     }
 }

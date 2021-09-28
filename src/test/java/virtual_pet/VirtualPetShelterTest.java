@@ -80,4 +80,14 @@ public class VirtualPetShelterTest  {
         underTest.removePet(tre);
         assertNull(underTest.retrievePetByName("Tre"));
     }
+
+    @Test
+    void admitChoiceShouldAddPetToArray() {
+        Mammoth mac = new Mammoth("Mac","grey",6,2,2,5, true);
+        underTest.admitPet(mac);
+        int sizeOfArrayList = underTest.getPets().size();
+        assertEquals(5, sizeOfArrayList);
+    }
+
+
 }
