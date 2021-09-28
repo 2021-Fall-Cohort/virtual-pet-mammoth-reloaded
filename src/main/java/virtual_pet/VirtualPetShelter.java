@@ -26,10 +26,18 @@ public class VirtualPetShelter {
         pets.remove(pet);
     }
 
+    public void checkForDeath() {
+        for (int i = 0; i < pets.size(); i++) {
+            if(pets.get(i).isAlive==false){
+                removePet(pets.get(i));
+            }
+        }
+    }
+
     public Pet retrievePetByName(String name) {
-        for (Pet refPet : pets) {
-            if (name.toLowerCase() == refPet.getName().toLowerCase()) {
-                return refPet;
+        for (int i = 0; i < pets.size(); i++) {
+            if (name.toUpperCase() == pets.get(i).getName().toUpperCase()) {
+                return pets.get(i);
             }
         }
         return null;
@@ -42,7 +50,9 @@ public class VirtualPetShelter {
     }
 
     public void waterPets() {
-
+        for (Pet refPet : pets) {
+            refPet.water();
+        }
     }
 
     public void careForPets() {

@@ -22,6 +22,7 @@ public abstract class Pet {
         this.age = age;
         this.hunger = hunger;
         this.happiness = happiness;
+        this.thirst = thirst;
         this.isAlive = isAlive;
         this.foodOptions = new String[]{"Feed Oats", "Feed 🥜 ", "Feed Peanuts", "Not Feed"};
         //Interact with a VirtualPet object in this method
@@ -94,8 +95,8 @@ public abstract class Pet {
     }
 
     public void water() {
-        thirst--;
-        thirst = Math.max(0, thirst--);
+        thirst= thirst -2;
+        thirst = Math.max(0, thirst);
     }
 
 

@@ -89,5 +89,50 @@ public class VirtualPetShelterTest  {
         assertEquals(5, sizeOfArrayList);
     }
 
+    @Test
+    void tickMethodShouldIncreaseAge() {
+        Pet tre = underTest.getPets().get(0);
+        tre.tick();
+        assertEquals(7, underTest.getPets().get(0).getAge());
+    }
+
+    @Test
+    void tickMethodShouldIncreaseHunger() {
+        Pet tre = underTest.getPets().get(0);
+        tre.tick();
+        assertEquals(3, underTest.getPets().get(0).getHunger());
+    }
+
+    @Test
+    void tickMethodShouldDecreaseHappiness() {
+        Pet tre = underTest.getPets().get(0);
+        tre.tick();
+        assertEquals(1, underTest.getPets().get(0).getHappiness());
+    }
+
+    @Test
+    void tickMethodShouldIncreaseThirst() {
+        Pet stew = underTest.getPets().get(1);
+        stew.tick();
+        assertEquals(6, underTest.getPets().get(1).getThirst());
+    }
+
+    @Test
+    void ageOfTenShouldAlterIsAlive() {
+        Pet tre = underTest.getPets().get(0);
+        tre.tick();
+        tre.tick();
+        tre.tick();
+        tre.tick();
+        tre.tick();
+        assertEquals(false, underTest.getPets().get(0).getIsAlive());
+    }
+
+    @Test
+    void retrievePetByNameShouldReturnName() {
+        Pet tre = underTest.getPets().get(0);
+        assertEquals("Tre", underTest.retrievePetByName("tre"));
+    }
+
 
 }

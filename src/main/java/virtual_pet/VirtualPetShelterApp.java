@@ -61,6 +61,7 @@ public class VirtualPetShelterApp {
                     playGame = false;
                     break;
             }
+            myShelter.checkForDeath();
         }
     }
 
@@ -70,10 +71,11 @@ public class VirtualPetShelterApp {
 
     public void petsStatus(ArrayList<Pet> pets) {
 //      System.out.format("%-2s%10d%-16s", string1, string2,string3,string4, string5);
-        System.out.println("|Name|\t|Happiness|\t|Hunger|\t|Age|");
+        System.out.println("|Name|\t|Happiness|\t|Hunger|\t|Age|\t|Thirst|");
         System.out.println("---------------------------------------------------");
         for (Pet refPet: pets){
-            System.out.println(refPet.getName() + "\t|     " + refPet.getHappiness() + "\t|     " + refPet.getHunger() + "\t|     " + refPet.getAge());
+            System.out.println(refPet.getName() + "\t|     " + refPet.getHappiness() + "\t|     " +
+                    refPet.getHunger() + "\t|     " + refPet.getAge()+ "\t|     "+ refPet.getThirst());
         }
     }
 }
