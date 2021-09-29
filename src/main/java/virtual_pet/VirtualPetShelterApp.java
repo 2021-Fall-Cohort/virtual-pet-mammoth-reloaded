@@ -1,9 +1,6 @@
 package virtual_pet;
 
-import javax.sound.midi.Soundbank;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class VirtualPetShelterApp {
@@ -48,7 +45,7 @@ public class VirtualPetShelterApp {
                     String userName = inputScanner.nextLine();
                     System.out.println("What is your pet's color in ROYGBIV?");
                     String userColor = inputScanner.nextLine();
-                    Mammoth userMammoth = new Mammoth(userName, userColor, 0, 5,5,5, true);
+                    Organic userMammoth = new Organic(userName, userColor, 0, 5,5,5, true);
                     myShelter.admitPet(userMammoth);
                     break;
                 case 4:

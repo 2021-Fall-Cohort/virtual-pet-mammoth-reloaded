@@ -8,10 +8,10 @@ public class VirtualPetShelter {
 
     public VirtualPetShelter() {
         this.pets = new ArrayList<Pet>();
-        pets.add(new Mammoth("Tre", "gray", 6, 2, 2, 5, true));
-        pets.add(new Mammoth("Stew", "Yellow", 1, 2, 2, 5, true));
-        pets.add(new Mammoth("Ben", "blue", 0, 1, 4, 5, true));
-        pets.add(new Mammoth("Joe", "Brown", 0, 2, 7, 5, true));
+        pets.add(new Organic("Tre", "gray", 6, 2, 2, 5, true));
+        pets.add(new Organic("Stew", "Yellow", 1, 2, 2, 5, true));
+        pets.add(new Organic("Ben", "blue", 0, 1, 4, 5, true));
+        pets.add(new Organic("Joe", "Brown", 0, 2, 7, 5, true));
     }
 
     public ArrayList<Pet> getPets() {
@@ -45,7 +45,7 @@ public class VirtualPetShelter {
 
     public void feedPets() {
         for (Pet refPet : pets) {
-            refPet.feed(2);
+            refPet.feed();
         }
     }
 
@@ -57,7 +57,7 @@ public class VirtualPetShelter {
 
     public void careForPets() {
         for (Pet refPet : pets) {
-            refPet.care(2);
+            refPet.care();
         }
     }
 
