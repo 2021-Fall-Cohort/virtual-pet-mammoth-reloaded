@@ -14,7 +14,7 @@ public class Mammoth extends Pet {
             System.out.println(petName + "loved their walk! Their happiness level is now " + happiness + ".");
         } else if (careChoices == 2) {
             happiness = happiness + 2;
-            System.out.println("Those tusks sure are sparkling! " + petColor + "'s happiness level is now  " + happiness + ".");
+//            System.out.println("Those tusks sure are sparkling! " + petColor + "'s happiness level is now  " + happiness + ".");
         } else if (careChoices == 3) {
             happiness = happiness + 1;
             System.out.println("Look at that pretty " + petColor + " fur! " + petName + "'s happiness level is now  " + happiness + ".");
@@ -44,6 +44,58 @@ public class Mammoth extends Pet {
     }
 
 
+    @Override
+    public void tick(){
+        happiness--;
+        age++;
+        thirst++;
+
+        if (age <= 10) {
+//            System.out.println("A year has passed and " + petName + " is now " + age + ".");
+        }
+        if (age == 11) {
+            isAlive = false;
+            System.out.println(petName + " has grown old and weak.");
+            System.out.println(petName + " has died!");
+        }
+
+        double v = .5;
+        if (age == 0 || age == 1) {
+            hunger = hunger + v;
+//            System.out.println(new StringBuilder().append("Your pet ").append(petName).append("'s hunger has changed to ").append(hunger).toString());
+        } else if (age > 1 && age <= 10) {
+            hunger = hunger + (v + v);
+//            System.out.println(new StringBuilder().append("Your pet ").append(petName).append("'s hunger has changed to ").append(hunger).toString());
+        } else {
+            System.out.println();
+        }
+
+        if (happiness >= 10) {
+            happiness = 10;
+            System.out.println(petName + " is as happy as can be! Great work!");
+        }
+        if (happiness <= 0) {
+            isAlive = false;
+            System.out.println("Oh no! " + petName + "'s poor heart can't take it anymore...");
+            System.out.println(petName + " has died!");
+        }
+
+        if (hunger <= 0) {
+            hunger = 0;
+            System.out.println("Woah! " + petName + " is full as can be! They'll grow big and strong in no time!");
+        }
+        if (hunger >= 12) {
+            isAlive = false;
+            System.out.println("OH NO! You've neglected to feed " + petName + "!");
+            System.out.println(petName + " has died!");
+        }
+
+        if (thirst >= 12) {
+            isAlive = false;
+            System.out.println("OH NO! You've neglected to water " + petName + "!");
+            System.out.println(petName + " has died!");
+        }
+    }
 //    public void hibernation(int hibernateChoices) {
 //        if (hibernateChoices== 1) {
 //            happiness = happiness - 2;
