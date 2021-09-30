@@ -10,15 +10,4 @@ public class RoboRex extends Robotic {
         System.out.println("T-Rex Report: \n" + petName + "the " + petColor + "mammoth is currently " + age);
         System.out.print(" years old. " + "\n Oil Level: " + oilLevel + "\n Battery Level: " + batteryLevel);
     }
-
-    @Override
-    public void care(int careChoices) {
-
-    }
-
-    @Override
-    public void tick() {
-
-    }
-
 }

@@ -8,10 +8,10 @@ public class VirtualPetShelter {
 
     public VirtualPetShelter() {
         this.pets = new ArrayList<Pet>();
-        pets.add(new Organic("Tre", "gray", 6, 2, 2, 5, true));
-        pets.add(new Organic("Stew", "Yellow", 1, 2, 2, 5, true));
-        pets.add(new Organic("Ben", "blue", 0, 1, 4, 5, true));
-        pets.add(new Organic("Joe", "Brown", 0, 2, 7, 5, true));
+        pets.add(new OrganicMammoth("Tre", "gray", 6, 2, 2, 5, true));
+        pets.add(new OrganicRex("Stew", "Yellow", 1, 2, 2, 5, true));
+        pets.add(new RoboMammoth("Ben", "blue", 0, 5, 4, true));
+        pets.add(new RoboRex("Joe", "Brown", 0, 5, 7,  true));
     }
 
     public ArrayList<Pet> getPets() {
@@ -45,19 +45,25 @@ public class VirtualPetShelter {
 
     public void feedPets() {
         for (Pet refPet : pets) {
-            refPet.feed();
+            if(refPet instanceof Organic) {
+                ((Organic)refPet).feed();
+            }
         }
     }
 
     public void waterPets() {
         for (Pet refPet : pets) {
-            refPet.water();
+            if(refPet instanceof Organic) {
+                ((Organic)refPet).water();
+            }
         }
     }
 
     public void careForPets() {
         for (Pet refPet : pets) {
-            refPet.care();
+            if(refPet instanceof Organic) {
+                ((Organic)refPet).care();
+            }
         }
     }
 
@@ -65,9 +71,15 @@ public class VirtualPetShelter {
         //age increases and displays
 
         for (Pet refPet : pets) {
-
             refPet.tick();
+        }
+    }
 
+    public void maintainRobos(){
+        for (Pet refPet : pets) {
+            if(refPet instanceof Robotic) {
+                ((Robotic) refPet).preventiveMaintenance();
+            }
         }
     }
 }

@@ -41,12 +41,48 @@ public class VirtualPetShelterApp {
                     break;
                 case 3:
                     //print out contents of option 3 - "Admit a pet"
-                    System.out.println("What is your pet's name?");
-                    String userName = inputScanner.nextLine();
-                    System.out.println("What is your pet's color in ROYGBIV?");
-                    String userColor = inputScanner.nextLine();
-                    Organic userMammoth = new Organic(userName, userColor, 0, 5,5,5, true);
-                    myShelter.admitPet(userMammoth);
+                    System.out.println("What type of pet do you want to admit? \n[1=Organic Mammoth]\t[2=Robotic Mammoth]" +
+                            "\t[3=Organic T-Rex]\t[4=Robotic T-Rex]");
+                    int admitChoice = inputScanner.nextInt();
+
+                    switch(admitChoice){
+
+                        case 1:
+                            System.out.println("What is your pet's name?");
+                            String userName = inputScanner.nextLine();
+                            System.out.println("What is your pet's color in ROYGBIV?");
+                            String userColor = inputScanner.nextLine();
+                            Organic userOrganicMammoth = new OrganicMammoth(userName, userColor, 0, 5,5,5, true);
+                            myShelter.admitPet(userOrganicMammoth);
+                            break;
+
+                        case 2:
+                            System.out.println("What is your pet's name?");
+                            String userName2 = inputScanner.nextLine();
+                            System.out.println("What is your pet's color in ROYGBIV?");
+                            String userColor2 = inputScanner.nextLine();
+                            Robotic userRoboticMammoth = new RoboMammoth(userName2, userColor2, 0, 5,5, true);
+                            myShelter.admitPet(userRoboticMammoth);
+                            break;
+
+                        case 3:
+                            System.out.println("What is your pet's name?");
+                            String userName3 = inputScanner.nextLine();
+                            System.out.println("What is your pet's color in ROYGBIV?");
+                            String userColor3 = inputScanner.nextLine();
+                            Organic userOrganicRex = new OrganicRex(userName3, userColor3, 0, 5,5,5, true);
+                            myShelter.admitPet(userOrganicRex);
+                            break;
+
+                        case 4:
+                            System.out.println("What is your pet's name?");
+                            String userName4 = inputScanner.nextLine();
+                            System.out.println("What is your pet's color in ROYGBIV?");
+                            String userColor4 = inputScanner.nextLine();
+                            Robotic userRoboticRex = new RoboRex(userName4, userColor4, 0, 5,5, true);
+                            myShelter.admitPet(userRoboticRex);
+                            break;
+                    }
                     break;
                 case 4:
                     myShelter.waterPets();
@@ -67,12 +103,24 @@ public class VirtualPetShelterApp {
     }
 
     public void petsStatus(ArrayList<Pet> pets) {
-//      System.out.format("%-2s%10d%-16s", string1, string2,string3,string4, string5);
-        System.out.println("|Name|\t|Happiness|\t|Hunger|\t|Age|\t|Thirst|");
-        System.out.println("---------------------------------------------------");
-        for (Pet refPet: pets){
-            System.out.println(refPet.getName() + "\t|     " + refPet.getHappiness() + "\t|     " +
-                    refPet.getHunger() + "\t|     " + refPet.getAge()+ "\t|     "+ refPet.getThirst());
+//        System.out.format("%-2s%10d%-16s", row);
+        for(int i=0; i<pets.size(); i++){
+            if(pets.get(i) instanceof Organic) {
+                System.out.println("|Name|\t|Happiness|\t|Hunger|\t|Age|\t|Thirst|");
+                System.out.println("---------------------------------------------------");
+                for (Pet refPet : pets) {
+                    System.out.println(refPet.getName() + "\t|     " + ((Organic)refPet).getHappiness() + "\t|     " +
+                            ((Organic)refPet).getHunger() + "\t|     " + refPet.getAge() + "\t|     " + ((Organic)refPet).getThirst());
+                }
+            }
+            if (pets.get(i) instanceof Robotic){
+                System.out.println("|Name|\t|Oil Level|\t|Battery Level|\t|Age|\t");
+                System.out.println("---------------------------------------------------");
+                for (Pet refPet : pets){
+                    System.out.println(refPet.getName() +"\t|     " + ((Robotic)refPet).getOilLevel() + "\t|     " +
+                            ((Robotic)refPet).getBatteryLevel() + "\t|     " + refPet.getAge());
+                }
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ public class OrganicRex extends Organic {
 
     @Override
     public void feed() {
-        super.feed();
+        hunger += 3;
+        hunger = Math.min(10, hunger);
     }
 }

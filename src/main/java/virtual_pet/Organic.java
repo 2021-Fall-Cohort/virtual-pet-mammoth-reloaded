@@ -78,16 +78,12 @@ public abstract class Organic extends Pet {
         }
     }
 
-    public void feed() {
-        hunger += 3;
-        hunger = Math.min(10, hunger);
-    }
+    public abstract void feed();
 
     public void water() {
         thirst -= 2;
         thirst = Math.max(0, thirst);
     }
-
     public double getHunger() {
         return hunger;
     }
