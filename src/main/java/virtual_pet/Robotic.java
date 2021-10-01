@@ -52,4 +52,5 @@ public abstract class Robotic extends Pet{
             System.out.println(petName + "'s battery's life cycle limit has been reached. Off to the scrapyard!");
         }
     }
+
 }

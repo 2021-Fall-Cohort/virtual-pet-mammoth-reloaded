@@ -19,7 +19,7 @@ public class VirtualPetShelterApp {
             System.out.println("Welcome to the WCCI-ship!" + " What would like to do?");
             petsStatus(myShelter.getPets());
             System.out.println("1=Feed all pets in WCCI!\t2=Adopt a pet!\t3=Admit a pet!\t" +
-                    "4=Water all pets in WCCI\t5=Care for all of the pets\t6=Quit Game?");
+                    "4=Water all pets in WCCI\t5=Care for all of the pets\t6=Preventive Maintenance\t7=Walk Mammoth\t8=Quit Game?");
 
             int mainShelterChoices = inputScanner.nextInt();
             inputScanner.nextLine();
@@ -49,8 +49,10 @@ public class VirtualPetShelterApp {
 
                         case 1:
                             System.out.println("What is your pet's name?");
+                            inputScanner = new Scanner(System.in);
                             String userName = inputScanner.nextLine();
                             System.out.println("What is your pet's color in ROYGBIV?");
+                            inputScanner = new Scanner(System.in);
                             String userColor = inputScanner.nextLine();
                             Organic userOrganicMammoth = new OrganicMammoth(userName, userColor, 0, 5,5,5, true);
                             myShelter.admitPet(userOrganicMammoth);
@@ -58,8 +60,10 @@ public class VirtualPetShelterApp {
 
                         case 2:
                             System.out.println("What is your pet's name?");
+                            inputScanner = new Scanner(System.in);
                             String userName2 = inputScanner.nextLine();
                             System.out.println("What is your pet's color in ROYGBIV?");
+                            inputScanner = new Scanner(System.in);
                             String userColor2 = inputScanner.nextLine();
                             Robotic userRoboticMammoth = new RoboMammoth(userName2, userColor2, 0, 5,5, true);
                             myShelter.admitPet(userRoboticMammoth);
@@ -67,8 +71,10 @@ public class VirtualPetShelterApp {
 
                         case 3:
                             System.out.println("What is your pet's name?");
+                             inputScanner = new Scanner(System.in);
                             String userName3 = inputScanner.nextLine();
                             System.out.println("What is your pet's color in ROYGBIV?");
+                            inputScanner = new Scanner(System.in);
                             String userColor3 = inputScanner.nextLine();
                             Organic userOrganicRex = new OrganicRex(userName3, userColor3, 0, 5,5,5, true);
                             myShelter.admitPet(userOrganicRex);
@@ -76,8 +82,10 @@ public class VirtualPetShelterApp {
 
                         case 4:
                             System.out.println("What is your pet's name?");
+                            inputScanner = new Scanner(System.in);
                             String userName4 = inputScanner.nextLine();
                             System.out.println("What is your pet's color in ROYGBIV?");
+                            inputScanner = new Scanner(System.in);
                             String userColor4 = inputScanner.nextLine();
                             Robotic userRoboticRex = new RoboRex(userName4, userColor4, 0, 5,5, true);
                             myShelter.admitPet(userRoboticRex);
@@ -91,6 +99,10 @@ public class VirtualPetShelterApp {
                     myShelter.careForPets();
                     break;
                 case 6:
+                    myShelter.maintainRobos();
+                    break;
+
+                case 7:
                     playGame = false;
                     break;
             }
@@ -103,26 +115,27 @@ public class VirtualPetShelterApp {
     }
 
     public void petsStatus(ArrayList<Pet> pets) {
-//        System.out.format("%-2s%10d%-16s", row);
-        System.out.println("|Name \t\t\t|\t|Happiness|\t|Hunger|\t|Age|\t|Thirst|");
-        System.out.println("---------------------------------------------------");
+        System.out.println("______________________________________________________");
+        System.out.println("|Name          |Happiness|\tHunger  |\tAge |  Thirst|");
+        System.out.println("------------------------------------------------------");
         for(int i=0; i<pets.size(); i++){
             if(pets.get(i) instanceof Organic) {
 
-                System.out.println(padString(pets.get(i).getName()) + "|     " + ((Organic)pets.get(i)).getHappiness() + "\t|     " +
+                System.out.println(padString(pets.get(i).getName()) + "|     " + ((Organic)pets.get(i)).getHappiness() + "\t |     " +
                             ((Organic)pets.get(i)).getHunger() + "\t|     " + pets.get(i).getAge() + "\t|     " + ((Organic)pets.get(i)).getThirst());
 
             }
 
         }
-        System.out.println("|Name|\t|Oil Level|\t|Battery Level|\t|Age|\t");
-        System.out.println("---------------------------------------------------");
+        System.out.println("______________________________________________________");
+        System.out.println("|Name          |Oil Level|\tBattery Level  |\tAge |");
+        System.out.println("------------------------------------------------------");
         for(int i=0; i<pets.size(); i++) {
             if (pets.get(i) instanceof Robotic) {
 
 
-                    System.out.println(pets.get(i).getName() + "\t|     " + ((Robotic) pets.get(i)).getOilLevel() + "\t|     " +
-                            ((Robotic) pets.get(i)).getBatteryLevel() + "\t|     " + pets.get(i).getAge());
+                    System.out.println(padString(pets.get(i).getName()) + "|     " + ((Robotic) pets.get(i)).getOilLevel() + "\t |     " +
+                            ((Robotic) pets.get(i)).getBatteryLevel() + "\t\t   |     " + pets.get(i).getAge());
 
             }
         }

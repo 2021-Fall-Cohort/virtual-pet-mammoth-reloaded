@@ -1,6 +1,6 @@
 package virtual_pet;
 
-public class OrganicMammoth extends Organic {
+public class OrganicMammoth extends Organic implements Walking {
 
     public OrganicMammoth(String petName, String petColor, int age, double hunger, int thirst, int happiness, boolean isAlive) {
         super(petName, petColor, age, hunger, thirst, happiness, isAlive);
@@ -14,7 +14,14 @@ public class OrganicMammoth extends Organic {
 
     @Override
     public void feed() {
-        hunger += 3;
+        hunger -= 3;
         hunger = Math.min(10, hunger);
+    }
+
+    @Override
+    public void walking() {
+        hunger += 2;
+        hunger = Math.min(10, hunger);
+
     }
 }
