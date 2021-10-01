@@ -104,12 +104,12 @@ public class VirtualPetShelterApp {
 
     public void petsStatus(ArrayList<Pet> pets) {
 //        System.out.format("%-2s%10d%-16s", row);
-        System.out.println("|Name|\t|Happiness|\t|Hunger|\t|Age|\t|Thirst|");
+        System.out.println("|Name \t\t\t|\t|Happiness|\t|Hunger|\t|Age|\t|Thirst|");
         System.out.println("---------------------------------------------------");
         for(int i=0; i<pets.size(); i++){
             if(pets.get(i) instanceof Organic) {
 
-                System.out.println(pets.get(i).getName() + "\t|     " + ((Organic)pets.get(i)).getHappiness() + "\t|     " +
+                System.out.println(padString(pets.get(i).getName()) + "|     " + ((Organic)pets.get(i)).getHappiness() + "\t|     " +
                             ((Organic)pets.get(i)).getHunger() + "\t|     " + pets.get(i).getAge() + "\t|     " + ((Organic)pets.get(i)).getThirst());
 
             }
@@ -126,6 +126,15 @@ public class VirtualPetShelterApp {
 
             }
         }
+    }
+    public String padString(String str){
+        String output = str;
+        int inputLength = str.length();
+        int loopLength = 15 - inputLength;
+        for(int i = 0; i<loopLength;i++ ){
+            output += " ";
+        }
+        return output;
     }
 }
 
