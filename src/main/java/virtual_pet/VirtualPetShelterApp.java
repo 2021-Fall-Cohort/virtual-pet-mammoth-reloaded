@@ -19,7 +19,7 @@ public class VirtualPetShelterApp {
             System.out.println("Welcome to the WCCI-ship!" + " What would like to do?");
             petsStatus(myShelter.getPets());
             System.out.println("1=Feed all pets in WCCI!\t2=Adopt a pet!\t3=Admit a pet!\t" +
-                    "4=Water all pets in WCCI\t5=Care for all of the pets\t6=Preventive Maintenance\t7=Walk Mammoth\t8=Quit Game?");
+                    "4=Water all pets in WCCI\t5=Care for all of the pets\t6=Preventive Maintenance\t7=Walk Mammoth\t8=Hunt with TRex\t9:Quit Game");
 
             int mainShelterChoices = inputScanner.nextInt();
             inputScanner.nextLine();
@@ -103,6 +103,29 @@ public class VirtualPetShelterApp {
                     break;
 
                 case 7:
+                   for (Pet refPet: myShelter.getPets()) {
+                       if (refPet instanceof OrganicMammoth) {
+                           ((OrganicMammoth) refPet).walking();
+                       }
+                       if (refPet instanceof RoboMammoth) {
+                           ((RoboMammoth) refPet).walking();
+                       }
+                   }
+                        break;
+                case 8:
+                    for (Pet refPet: myShelter.getPets()) {
+                        if (refPet instanceof OrganicRex) {
+                            ((OrganicRex) refPet).hunting();
+                        }
+                        if (refPet instanceof RoboRex) {
+                            ((RoboRex) refPet).hunting();
+                        }
+                    }
+                    break;
+
+                case 9:
+                    System.out.println("Quit Game?");
+
                     playGame = false;
                     break;
             }

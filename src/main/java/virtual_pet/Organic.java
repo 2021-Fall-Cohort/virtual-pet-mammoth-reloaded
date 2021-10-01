@@ -65,17 +65,8 @@ public abstract class Organic extends Pet {
             hunger = 0;
             System.out.println("Woah! " + petName + " is full as can be! They'll grow big and strong in no time!");
         }
-        if (hunger >= 12) {
-            isAlive = false;
-            System.out.println("OH NO! You've neglected to feed " + petName + "!");
-            System.out.println(petName + " has died!");
-        }
 
-        if (thirst >= 12) {
-            isAlive = false;
-            System.out.println("OH NO! You've neglected to water " + petName + "!");
-            System.out.println(petName + " has died!");
-        }
+
     }
 
     public abstract void feed();

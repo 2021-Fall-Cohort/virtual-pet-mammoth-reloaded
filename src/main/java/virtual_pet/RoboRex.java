@@ -33,5 +33,5 @@ public class RoboRex extends Robotic implements Hunting {
 
     }
 
-    
+
 }
