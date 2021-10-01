@@ -4,7 +4,7 @@ package virtual_pet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-//import java.util.ArrayList;
+import java.util.ArrayList;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,8 +21,7 @@ public class VirtualPetShelterTest  {
     //Testing the code by creating an instance of Mammoth, adding it to the arraylist, checking that its there, and getting the name via assertEq.
     @Test
      void shouldCreateClassAndAddToArrayList() {
-        Organic tre = new Organic("Tre", "gray", 6, 2, 2, 5,true);
-        underTest.getPets().add(tre);
+       Pet tre = underTest.getPets().get(0);
         assertEquals("Tre", underTest.getPets().get(0).getName());
     }
 
@@ -36,16 +35,15 @@ public class VirtualPetShelterTest  {
     //Creating version of mammoth, adding to the array, and then removing one of the mammoths based on if the user chooses prompt 2
     @Test
     void shouldRemovePetFromArrayList() {
-        Organic mac = new Organic("Mac","grey",6,2,2,5, true);
-        underTest.getPets();
-        underTest .removePet(mac);
+        Pet ben = underTest.getPets().get(2);
+        underTest .removePet(ben);
         int sizeOfArrayList = underTest.getPets().size();
-        assertEquals(4, sizeOfArrayList);
+        assertEquals(3, sizeOfArrayList);
         }
 
     @Test
-    void shouldAddPetFromArrayList(){
-        Organic mac = new Organic("Mac","grey",6,2,2,5,true);
+    void shouldAddPetToArrayList(){
+        OrganicRex mac = new OrganicRex("Mac","grey",6,2,2,5,true);
         underTest.admitPet(mac);
         int sizeOfArrayList = underTest.getPets().size();
         assertEquals(5, sizeOfArrayList);
@@ -53,11 +51,9 @@ public class VirtualPetShelterTest  {
 
     @Test
     void feedMethodShouldReduceHunger(){
-        Organic mac = new Organic("Mac","grey",6,2,2,5, true);
-        underTest.admitPet(mac);
+        Pet tre = underTest.getPets().get(0);
         underTest.feedPets();
-        int sizeOfArrayList = underTest.getPets().size();
-        assertEquals(0, mac.hunger);
+        assertEquals(5, ((Organic)tre).getHunger());
     }
 
     @Test
