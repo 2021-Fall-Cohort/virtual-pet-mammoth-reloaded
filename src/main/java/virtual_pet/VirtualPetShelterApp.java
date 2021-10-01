@@ -104,22 +104,26 @@ public class VirtualPetShelterApp {
 
     public void petsStatus(ArrayList<Pet> pets) {
 //        System.out.format("%-2s%10d%-16s", row);
+        System.out.println("|Name|\t|Happiness|\t|Hunger|\t|Age|\t|Thirst|");
+        System.out.println("---------------------------------------------------");
         for(int i=0; i<pets.size(); i++){
             if(pets.get(i) instanceof Organic) {
-                System.out.println("|Name|\t|Happiness|\t|Hunger|\t|Age|\t|Thirst|");
-                System.out.println("---------------------------------------------------");
-                for (Pet refPet : pets) {
-                    System.out.println(refPet.getName() + "\t|     " + ((Organic)refPet).getHappiness() + "\t|     " +
-                            ((Organic)refPet).getHunger() + "\t|     " + refPet.getAge() + "\t|     " + ((Organic)refPet).getThirst());
-                }
+
+                System.out.println(pets.get(i).getName() + "\t|     " + ((Organic)pets.get(i)).getHappiness() + "\t|     " +
+                            ((Organic)pets.get(i)).getHunger() + "\t|     " + pets.get(i).getAge() + "\t|     " + ((Organic)pets.get(i)).getThirst());
+
             }
-            if (pets.get(i) instanceof Robotic){
-                System.out.println("|Name|\t|Oil Level|\t|Battery Level|\t|Age|\t");
-                System.out.println("---------------------------------------------------");
-                for (Pet refPet : pets){
-                    System.out.println(refPet.getName() +"\t|     " + ((Robotic)refPet).getOilLevel() + "\t|     " +
-                            ((Robotic)refPet).getBatteryLevel() + "\t|     " + refPet.getAge());
-                }
+
+        }
+        System.out.println("|Name|\t|Oil Level|\t|Battery Level|\t|Age|\t");
+        System.out.println("---------------------------------------------------");
+        for(int i=0; i<pets.size(); i++) {
+            if (pets.get(i) instanceof Robotic) {
+
+
+                    System.out.println(pets.get(i).getName() + "\t|     " + ((Robotic) pets.get(i)).getOilLevel() + "\t|     " +
+                            ((Robotic) pets.get(i)).getBatteryLevel() + "\t|     " + pets.get(i).getAge());
+
             }
         }
     }
