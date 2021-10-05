@@ -15,8 +15,11 @@ public class VirtualPetShelterApp {
     public void gameLoop() {
         VirtualPetShelter myShelter = new VirtualPetShelter();
 
+        //Main game loop
         while (playGame) {
             System.out.println("Welcome to the WCCI-ship!" + " What would like to do?");
+
+            //Prints out the status of all the pets and their fields
             petsStatus(myShelter.getPets());
             System.out.println("1=Feed all pets in WCCI!\t2=Adopt a pet!\t3=Admit a pet!\t" +
                     "4=Water all pets in WCCI\t5=Care for all of the pets\t6=Preventive Maintenance\t7=Walk Mammoth\t8=Hunt with TRex\t9:Quit Game");
@@ -26,25 +29,30 @@ public class VirtualPetShelterApp {
 
             myShelter.tick();
 
+            //Selects all game options
             switch (mainShelterChoices) {
 
+                //Reduces hunger for all organic pets
                 case 1:
-                    //print out contents of option 1 - "View list of pets"
                     System.out.println("All pets have been feed");
                     myShelter.feedPets();
                     break;
+
+                //Removes selected pet from arraylist
                 case 2:
-                    //print out contents of option 2 - "Adopt a pet"
                     System.out.println("What pet do you want to adopt?");
                     String name = inputScanner.nextLine();
                     myShelter.removePet(myShelter.retrievePetByName(name));
                     break;
+
+                //Instantiates new pet and adds to the ArrayList
                 case 3:
                     //print out contents of option 3 - "Admit a pet"
                     System.out.println("What type of pet do you want to admit? \n[1=Organic Mammoth]\t[2=Robotic Mammoth]" +
                             "\t[3=Organic T-Rex]\t[4=Robotic T-Rex]");
                     int admitChoice = inputScanner.nextInt();
 
+                    //New switch case to add pet to ArrayList of chosen type
                     switch(admitChoice){
 
                         case 1:
@@ -92,16 +100,23 @@ public class VirtualPetShelterApp {
                             break;
                     }
                     break;
+
+                //Reduces thirst for all organic pets
                 case 4:
                     myShelter.waterPets();
                     break;
+
+                //Increases happiness for all organic pets
                 case 5:
                     myShelter.careForPets();
                     break;
+
+                //Increases oilLevel and batteryLevel of all robotic pets
                 case 6:
                     myShelter.maintainRobos();
                     break;
 
+                //Calls walking interface for all mammoth pets
                 case 7:
                    for (Pet refPet: myShelter.getPets()) {
                        if (refPet instanceof OrganicMammoth) {
@@ -112,6 +127,8 @@ public class VirtualPetShelterApp {
                        }
                    }
                         break;
+
+                //Calls hunting interface for all T-rex pets
                 case 8:
                     for (Pet refPet: myShelter.getPets()) {
                         if (refPet instanceof OrganicRex) {
@@ -123,46 +140,47 @@ public class VirtualPetShelterApp {
                     }
                     break;
 
+                //Exits main game loop
                 case 9:
                     System.out.println("Quit Game?");
-
                     playGame = false;
                     break;
             }
+
+            //Checks to see if any of the methods in the loop "killed" the pets
             myShelter.checkForDeath();
         }
     }
 
-    private void admitPet(VirtualPetShelter myShelter) {
-        //prompt user for characteristics = pet type (mammoth/trex), pet name, color, hunger, etc...
-    }
-
     public void petsStatus(ArrayList<Pet> pets) {
-        System.out.println("______________________________________________________");
-        System.out.println("|Name          |Happiness|\tHunger  |\tAge |  Thirst|");
-        System.out.println("______________________________________________________");
+        System.out.println("_____________________________Organic____________________________");
+        System.out.println("|Name          |Happiness|\tHunger  |\tAge |  Thirst|\tPet Type");
+        System.out.println("________________________________________________________________");
         for(int i=0; i<pets.size(); i++){
             if(pets.get(i) instanceof Organic) {
 
                 System.out.println(padString(pets.get(i).getName()) + "|     " + ((Organic)pets.get(i)).getHappiness() + "\t |     " +
-                            ((Organic)pets.get(i)).getHunger() + "\t|     " + pets.get(i).getAge() + "\t|     " + ((Organic)pets.get(i)).getThirst());
+                            ((Organic)pets.get(i)).getHunger() + "\t|     " + pets.get(i).getAge() + "\t|     "
+                        + ((Organic)pets.get(i)).getThirst() + "\t |   " + pets.get(i).getPetType());
 
             }
 
         }
-        System.out.println("______________________________________________________");
-        System.out.println("|Name          |Oil Level|\tBattery Level  |\tAge |");
-        System.out.println("______________________________________________________");
+        System.out.println("_____________________________Robotic____________________________");
+        System.out.println("|Name          |Oil Level|\tBattery Level  |\tAge |\tPet Type");
+        System.out.println("________________________________________________________________");
         for(int i=0; i<pets.size(); i++) {
             if (pets.get(i) instanceof Robotic) {
 
 
                     System.out.println(padString(pets.get(i).getName()) + "|     " + ((Robotic) pets.get(i)).getOilLevel() + "\t |     " +
-                            ((Robotic) pets.get(i)).getBatteryLevel() + "\t\t   |     " + pets.get(i).getAge());
+                            ((Robotic) pets.get(i)).getBatteryLevel() + "\t\t   |     " + pets.get(i).getAge() +"\t|   " + pets.get(i).getPetType());
 
             }
         }
     }
+
+    //Makes name strings same length to keep petsStatus table uniform for all pet names
     public String padString(String str){
         String output = str;
         int inputLength = str.length();

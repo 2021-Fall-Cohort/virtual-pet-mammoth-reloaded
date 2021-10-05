@@ -34,6 +34,16 @@ public abstract class Pet {
         return age;
     }
 
+    public String getPetType(){
+
+            if(this instanceof OrganicRex || this instanceof RoboRex){
+                return "T-Rex";
+            }
+            else {
+                return "Mammoth";
+            }
+    }
+
     public abstract void tick();
 
 }
