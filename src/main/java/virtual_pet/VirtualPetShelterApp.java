@@ -140,7 +140,7 @@ public class VirtualPetShelterApp {
     public void petsStatus(ArrayList<Pet> pets) {
         System.out.println("______________________________________________________");
         System.out.println("|Name          |Happiness|\tHunger  |\tAge |  Thirst|");
-        System.out.println("------------------------------------------------------");
+        System.out.println("______________________________________________________");
         for(int i=0; i<pets.size(); i++){
             if(pets.get(i) instanceof Organic) {
 
@@ -152,7 +152,7 @@ public class VirtualPetShelterApp {
         }
         System.out.println("______________________________________________________");
         System.out.println("|Name          |Oil Level|\tBattery Level  |\tAge |");
-        System.out.println("------------------------------------------------------");
+        System.out.println("______________________________________________________");
         for(int i=0; i<pets.size(); i++) {
             if (pets.get(i) instanceof Robotic) {
 
