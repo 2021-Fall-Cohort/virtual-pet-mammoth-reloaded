@@ -16,7 +16,8 @@ public class RoboRex extends Robotic implements Hunting {
     public void hunting() {
         oilLevel -= 2;
         batteryLevel -= 2;
-        oilLevel = Math.min(10, oilLevel);
+        oilLevel = Math.max(0, oilLevel);
+        batteryLevel = Math.max(0, batteryLevel);
         if (oilLevel <= 0) {
             isAlive = false;
             System.out.println("Oh no! " + petName + "'s engine's crankshaft has gone through the engine block...");

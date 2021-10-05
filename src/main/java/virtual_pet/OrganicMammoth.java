@@ -15,7 +15,7 @@ public class OrganicMammoth extends Organic implements Walking {
     @Override
     public void feed() {
         hunger -= 3;
-        hunger = Math.min(10, hunger);
+        hunger = Math.max(0, hunger);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class OrganicMammoth extends Organic implements Walking {
                 System.out.println("OH NO! You've neglected to feed " + petName + "!");
                 System.out.println(petName + " has died!");
             }
-
+            thirst = Math.min(10, thirst);
             if (thirst >= 12) {
                 isAlive = false;
                 System.out.println("OH NO! You've neglected to water " + petName + "!");

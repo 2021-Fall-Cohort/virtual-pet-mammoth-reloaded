@@ -53,21 +53,21 @@ public class VirtualPetShelterTest  {
     void feedMethodShouldReduceHunger(){
         Pet tre = underTest.getPets().get(0);
         underTest.feedPets();
-        assertEquals(5, ((Organic)tre).getHunger());
+        assertEquals(0, ((Organic)tre).getHunger());
     }
 
     @Test
-    void waterMethodShouldRecueThirst(){
-        Organic mac = new Organic("Mac","grey",6,2,2,5, true);
-        underTest.admitPet(mac);
+    void waterMethodShouldReduceThirst(){
+        Pet tre = underTest.getPets().get(0);
         underTest.waterPets();
+        assertEquals(0, ((Organic)tre).getThirst());
     }
 
     @Test
     void careMethodShouldIncreaseHappiness(){
-        underTest.getPets();
+        Pet stew = underTest.getPets().get(1);
         underTest.careForPets();
-        assertEquals(4, underTest.getPets().get(0).getHappiness());
+        assertEquals(8, ((Organic)stew).getHappiness());
     }
 
     @Test
@@ -79,7 +79,7 @@ public class VirtualPetShelterTest  {
 
     @Test
     void admitChoiceShouldAddPetToArray() {
-        Organic mac = new Organic("Mac","grey",6,2,2,5, true);
+        OrganicRex mac = new OrganicRex("Mac","grey",6,2,2,5, true);
         underTest.admitPet(mac);
         int sizeOfArrayList = underTest.getPets().size();
         assertEquals(5, sizeOfArrayList);
@@ -96,21 +96,21 @@ public class VirtualPetShelterTest  {
     void tickMethodShouldIncreaseHunger() {
         Pet tre = underTest.getPets().get(0);
         tre.tick();
-        assertEquals(3, underTest.getPets().get(0).getHunger());
+        assertEquals(3, ((Organic)tre).getHunger());
     }
 
     @Test
     void tickMethodShouldDecreaseHappiness() {
         Pet tre = underTest.getPets().get(0);
         tre.tick();
-        assertEquals(1, underTest.getPets().get(0).getHappiness());
+        assertEquals(4, ((Organic)tre).getHappiness());
     }
 
     @Test
     void tickMethodShouldIncreaseThirst() {
         Pet stew = underTest.getPets().get(1);
         stew.tick();
-        assertEquals(6, underTest.getPets().get(1).getThirst());
+        assertEquals(3, ((Organic)stew).getThirst());
     }
 
     @Test
@@ -127,8 +127,73 @@ public class VirtualPetShelterTest  {
     @Test
     void retrievePetByNameShouldReturnName() {
         Pet tre = underTest.getPets().get(0);
-        assertEquals("Tre", underTest.retrievePetByName("tre"));
+        assertEquals("Tre", underTest.retrievePetByName("tre").getName().toString());
     }
 
+    @Test
+    void preventativeMaintenanceShouldIncreaseBatteryLevel(){
+        Pet ben = underTest.getPets().get(2);
+        underTest.maintainRobos();
+        assertEquals(7, ((Robotic)ben).getBatteryLevel());
+    }
 
+    @Test
+    void preventativeMaintenanceShouldIncreaseOilLevel(){
+        Pet ben = underTest.getPets().get(2);
+        underTest.maintainRobos();
+        assertEquals(8, ((Robotic)ben).getOilLevel());
+    }
+
+    @Test
+    void huntingInterfaceShouldIncreaseThirstHappiness(){
+        Pet stew = underTest.getPets().get(1);
+        ((OrganicRex)stew).hunting();
+        assertEquals(7, ((OrganicRex)stew).getHappiness());
+        assertEquals(4, ((OrganicRex)stew).getThirst());
+    }
+
+    @Test
+    void huntingInterfaceShouldDecreaseHunger(){
+        Pet stew = underTest.getPets().get(1);
+        ((OrganicRex)stew).hunting();
+        assertEquals(0, ((OrganicRex)stew).getHunger());
+    }
+
+    @Test
+    void huntingInterfaceShouldDecreaseOilBatteryLevel(){
+        Pet joe = underTest.getPets().get(3);
+        ((RoboRex)joe).hunting();
+        assertEquals(5, ((RoboRex)joe).getBatteryLevel());
+        assertEquals(3, ((RoboRex)joe).getOilLevel());
+    }
+
+    @Test
+    void walkingInterfaceShouldIncreaseIncreaseHungerHappinessThirst(){
+        Pet tre = underTest.getPets().get(0);
+        ((OrganicMammoth)tre).walking();
+        assertEquals(7, ((Organic)tre).getHappiness());
+        assertEquals(4, ((Organic)tre).getThirst());
+        assertEquals(4, ((Organic)tre).getHunger());
+    }
+
+    @Test
+    void walkingInterfaceShouldDecreaseOilBatteryLevel(){
+        Pet ben = underTest.getPets().get(2);
+        ((RoboMammoth)ben).walking();
+        assertEquals(3, ((Robotic)ben).getOilLevel());
+        assertEquals(2, ((Robotic)ben).getBatteryLevel());
+    }
+
+    @Test
+    void checkForDeathShouldRemoveDeadPetsFromArray(){
+        Pet tre =  underTest.getPets().get(0);
+        tre.tick();
+        tre.tick();
+        tre.tick();
+        tre.tick();
+        tre.tick();
+        underTest.checkForDeath();
+        int sizeOfArrayList = underTest.getPets().size();
+        assertEquals(3, sizeOfArrayList);
+    }
 }

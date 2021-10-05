@@ -15,13 +15,13 @@ public class OrganicRex extends Organic implements Hunting {
     @Override
     public void feed() {
         hunger -= 3;
-        hunger = Math.min(10, hunger);
+        hunger = Math.min(0, hunger);
     }
 
     @Override
     public void hunting() {
         hunger -= 2;
-        hunger = Math.min(10, hunger);
+        hunger = Math.max(0, hunger);
         happiness += 2;
         thirst += 2;
         if (happiness >= 10) {

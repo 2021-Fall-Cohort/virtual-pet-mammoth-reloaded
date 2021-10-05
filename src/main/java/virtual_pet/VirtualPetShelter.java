@@ -36,7 +36,7 @@ public class VirtualPetShelter {
 
     public Pet retrievePetByName(String name) {
         for (int i = 0; i < pets.size(); i++) {
-            if (name.toUpperCase().equals( pets.get(i).getName().toUpperCase())) {
+            if (name.toLowerCase().equals( pets.get(i).getName().toLowerCase())) {
                 return pets.get(i);
             }
         }
